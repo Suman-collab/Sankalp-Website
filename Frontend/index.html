@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SANKALP 26-27 | NIST University</title>
+  <meta name="description" content="SANKALP 26-27 - The Annual National Level Techno-Management Symposium organized by NIST University, Berhampur, Odisha.">
+  <link rel="icon" type="image/png" href="assets/images/sankalp_emblem.png">
+
+  <!-- Google Fonts: Poppins, Cinzel, Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+  <!-- ==============================================
+       1. PRELOADER // RELOADER VIDEO EXPERIENCE
+       ============================================== -->
+  <div id="preloader" class="preloader-overlay">
+    <div class="video-container">
+      <video id="reloader-video" playsinline muted preload="auto" autoplay>
+        <source src="Videos/reloader.mp4" type="video/mp4">
+        <source src="Videos/newpreloader.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      <div class="video-vignette"></div>
+      <div class="scanline-effect"></div>
+    </div>
+
+    <!-- Preloader HUD -->
+    <div class="preloader-hud">
+      <div class="hud-top">
+        <div class="hud-chip">
+          <span class="blinking-dot"></span>
+          <span class="hud-label">NIST_UNIVERSITY // SANKALP 26-27</span>
+        </div>
+        <div class="hud-status">SYSTEM_STATUS: <span class="status-active">INITIALIZING CORE</span></div>
+        <div class="hud-actions">
+          <button id="toggle-audio-btn" class="hud-btn audio-btn" title="Toggle Audio" aria-label="Toggle Audio">
+            <i class="fa-solid fa-volume-xmark" id="audio-icon"></i>
+            <span id="audio-text">UNMUTE SOUND</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="hud-center">
+        <div class="cyber-bracket left">[</div>
+        <div class="hud-title-wrap">
+          <img src="assets/images/sankalp_emblem.png" alt="Sankalp Emblem" class="hud-emblem">
+          <h1 class="hud-main-title">SANKALP 26-27</h1>
+          <p class="hud-tagline">NATIONAL INSTITUTE OF SCIENCE AND TECHNOLOGY</p>
+        </div>
+        <div class="cyber-bracket right">]</div>
+      </div>
+
+      <div class="hud-bottom">
+        <div class="hud-progress-section">
+          <div class="progress-info">
+            <span class="loader-task" id="loader-task-text">PREPARING FESTIVAL EXPERIENCE...</span>
+            <span class="loader-percentage" id="loader-percent">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-bar-fill" id="progress-fill"></div>
+          </div>
+          <div class="system-telemetry">
+            <span>LOCATION: NIST PALLUR HILLS</span>
+            <span>SYSTEM: SANKALP CORE ACTIVE</span>
+            <span>PORTAL: READY</span>
+          </div>
+        </div>
+
+        <button id="skip-intro-btn" class="skip-btn" aria-label="Enter Festival">
+          <span class="skip-text">ENTER SANKALP</span>
+          <i class="fa-solid fa-angles-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Starfield Background Overlay (Matches NIST Sankalp) -->
+  <div class="stars-bg"></div>
+
+  <!-- ==============================================
+       2. TOP NAVIGATION BAR
+       ============================================== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      
+      <!-- Left Nav Links -->
+      <div class="nav-left">
+        <a href="#/" class="nav-link nav-home-link active" data-route="/">HOME</a>
+        <a href="#/events" class="nav-link" data-route="/events">EVENTS</a>
+        <a href="#/club" class="nav-link" data-route="/club">CLUBS</a>
+      </div>
+
+      <!-- Center Brand: NIST Logo & University Title -->
+      <a href="#/" class="nav-brand" data-route="/">
+        <img src="assets/images/nist_logo.png" alt="NIST Logo" class="brand-logo" onerror="this.src='assets/images/logo.png'">
+        <div class="brand-text-col">
+          <span class="nist-title">NIST University</span>
+          <div class="nist-gold-line"></div>
+        </div>
+      </a>
+
+      <!-- Right Nav Links -->
+      <div class="nav-right">
+        <a href="#/team" class="nav-link" data-route="/team">TEAMS</a>
+        <a href="#/gallery" class="nav-link" data-route="/gallery">GALLERY</a>
+        <button class="nav-register-btn open-register-btn">
+          <span>Register</span>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-menu-inner">
+        <a href="#/" class="mobile-nav-link" data-route="/">HOME</a>
+        <a href="#/events" class="mobile-nav-link" data-route="/events">EVENTS</a>
+        <a href="#/club" class="mobile-nav-link" data-route="/club">CLUBS</a>
+        <a href="#/team" class="mobile-nav-link" data-route="/team">TEAMS</a>
+        <a href="#/gallery" class="mobile-nav-link" data-route="/gallery">GALLERY</a>
+        <div class="mobile-actions">
+          <button class="btn btn-gold open-register-btn w-100">Register Now</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==============================================
+       3. MAIN ROUTER VIEWS CONTAINER
+       ============================================== -->
+  <main id="app-root">
+
+    <!-- ==========================================
+         VIEW 1: HOME PAGE (#/)
+         ========================================== -->
+    <div id="view-home" class="page-view active">
+      
+      <!-- HERO SECTION: Background Video + Decorative Border + Sankalp Chakra -->
+      <section class="hero-section" id="home">
+        <!-- Hero Background Video -->
+        <div class="hero-video-wrap">
+          <video class="hero-bg-video" autoplay loop muted playsinline preload="auto">
+            <source src="Videos/reloader.mp4" type="video/mp4">
+            <source src="Videos/newpreloader.mp4" type="video/mp4">
+          </video>
+          <div class="hero-dark-overlay"></div>
+        </div>
+
+        <!-- Decorative Golden Border Overlay -->
+        <div class="hero-decorative-wrap">
+          <img src="assets/images/decorative_border.png" alt="Decorative Border" class="hero-decorative-border">
+        </div>
+
+        <!-- Rotating Radiant Sankalp Chakra Centerpiece -->
+        <div class="hero-chakra-container">
+          <div class="chakra-glow-halo"></div>
+          <img src="assets/images/sankalp_chakra.png" alt="Sankalp Chakra" class="hero-chakra-img rotating-chakra">
+        </div>
+      </section>
+
+      <!-- SECTION 2: SANKALP EMBLEM & HOLOGRAM COUNTDOWN -->
+      <section class="countdown-section">
+        <div class="container text-center">
+          <div class="emblem-wrapper">
+            <img src="assets/images/sankalp_emblem.png" alt="Sankalp Emblem" class="sankalp-emblem logo-pulse">
+          </div>
+          
+          <h1 class="sankalp-main-heading">
+            SANKALP <span class="gold-gradient-text">26-27</span>
+          </h1>
+          <p class="sankalp-subheading">A new chapter is on the horizon.</p>
+
+          <!-- Hologram Glass Countdown Panel -->
+          <div class="hologram-countdown-panel">
+            <div class="hologram-grid">
+              <div class="countdown-box">
+                <span class="count-digit" id="timer-days">14</span>
+                <span class="count-tag">DAYS</span>
+              </div>
+              <div class="countdown-box">
+                <span class="count-digit" id="timer-hours">08</span>
+                <span class="count-tag">HOURS</span>
+              </div>
+              <div class="countdown-box">
+                <span class="count-digit" id="timer-minutes">45</span>
+                <span class="count-tag">MINUTES</span>
+              </div>
+              <div class="countdown-box">
+                <span class="count-digit" id="timer-seconds">30</span>
+                <span class="count-tag">SECONDS</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-cta-row">
+            <a href="#/events" class="btn btn-gold">
+              <i class="fa-solid fa-sparkles"></i> Explore Events
+            </a>
+            <a href="#/club" class="btn btn-outline">
+              <i class="fa-solid fa-users"></i> Explore Clubs
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: SHADES OF SANKALP (Proshows & Star Nights) -->
+      <section class="shades-section">
+        <div class="container">
+          <div class="section-title-wrap text-center">
+            <h2 class="shades-title gold-gradient-text">Shades of Sankalp</h2>
+            <div class="shades-pulse-lines">
+              <span class="pulse-line line-1"></span>
+              <span class="pulse-line line-2"></span>
+              <span class="pulse-line line-3"></span>
+            </div>
+            <p class="shades-subtitle">Experience the most electrifying nights of the year</p>
+          </div>
+
+          <div class="shades-cards-grid" id="shades-container">
+            <!-- Teaser Card 1: Star Night -->
+            <div class="shade-card star-night">
+              <div class="shade-card-glow purple-glow"></div>
+              <div class="shade-card-inner">
+                <div class="shade-image-wrap placeholder-wrap">
+                  <div class="teaser-icon-box">
+                    <i class="fa-solid fa-microphone-lines"></i>
+                  </div>
+                  <div class="shade-badge bg-yellow">Star Night</div>
+                </div>
+                <div class="shade-content">
+                  <span class="artist-subtag">Headliner Artist</span>
+                  <h3 class="artist-name">To Be Announced</h3>
+                  <p class="shade-desc">The official celebrity headliner and musical concert lineup will be revealed soon. Stay tuned!</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Teaser Card 2: DJ Night -->
+            <div class="shade-card dj-night">
+              <div class="shade-card-glow cyan-glow"></div>
+              <div class="shade-card-inner">
+                <div class="shade-image-wrap placeholder-wrap">
+                  <div class="teaser-icon-box">
+                    <i class="fa-solid fa-compact-disc"></i>
+                  </div>
+                  <div class="shade-badge bg-cyan">DJ Night</div>
+                </div>
+                <div class="shade-content">
+                  <span class="artist-subtag">EDM & Laser Arena</span>
+                  <h3 class="artist-name">To Be Announced</h3>
+                  <p class="shade-desc">High-voltage bass drops, laser synchronization, and non-stop EDM dance floor euphoria.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Teaser Card 3: Mr. & Miss Sankalp / Runway -->
+            <div class="shade-card fashion-night">
+              <div class="shade-card-glow orange-glow"></div>
+              <div class="shade-card-inner">
+                <div class="shade-image-wrap placeholder-wrap">
+                  <div class="teaser-icon-box">
+                    <i class="fa-solid fa-crown"></i>
+                  </div>
+                  <div class="shade-badge bg-orange">Flagship Runway</div>
+                </div>
+                <div class="shade-content">
+                  <span class="artist-subtag">Elegance & Wit</span>
+                  <h3 class="artist-name">Mr. & Miss Sankalp</h3>
+                  <p class="shade-desc">The premier style, charisma, and talent showcase runway competition.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: ABOUT NIST & SANKALP -->
+      <section class="about-nist-section">
+        <div class="container">
+          <h2 class="giant-about-title text-center gold-gradient-text">About</h2>
+          
+          <div class="about-content-row">
+            <div class="about-text-column">
+              <div class="highlight-item">
+                <i class="fa-solid fa-award highlight-icon"></i>
+                <div>
+                  <h4>Premier Research Institute</h4>
+                  <p>Established as a center of technological excellence, fostering innovations in engineering, management, and scientific discovery.</p>
+                </div>
+              </div>
+
+              <div class="highlight-item">
+                <i class="fa-solid fa-tree highlight-icon"></i>
+                <div>
+                  <h4>65 Acres of Lush Green Campus</h4>
+                  <p>Nestled amidst the scenic Pallur Hills in Berhampur, providing an eco-friendly and inspiring academic landscape.</p>
+                </div>
+              </div>
+
+              <div class="highlight-item">
+                <i class="fa-solid fa-building-columns highlight-icon"></i>
+                <div>
+                  <h4>World-Class Academic Infrastructure</h4>
+                  <p>Equipped with state-of-the-art computing labs, robotics workshops, auditoriums, and collaborative research hubs.</p>
+                </div>
+              </div>
+
+              <div class="highlight-item">
+                <i class="fa-solid fa-globe highlight-icon"></i>
+                <div>
+                  <h4>Global Research Collaboration</h4>
+                  <p>Strategic ties and academic partnerships with renowned international universities and corporate tech giants.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stats Metric Cards Grid -->
+            <div class="about-stats-grid">
+              <div class="stat-box">
+                <span class="stat-number">1996</span>
+                <span class="stat-label">Founded</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">65</span>
+                <span class="stat-label">Acres Campus</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">1st</span>
+                <span class="stat-label">NRI Venture</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">28+</span>
+                <span class="stat-label">Years of Excellence</span>
+              </div>
+              <div class="stat-box highlight-stat">
+                <span class="stat-number">28th</span>
+                <span class="stat-label">Ranked Nationally</span>
+              </div>
+              <div class="stat-box highlight-stat">
+                <span class="stat-number">21</span>
+                <span class="stat-label">Active Student Clubs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: EXPLORE YOUR INTERESTS (Category Highlights) -->
+      <section class="explore-section">
+        <div class="container">
+          <div class="section-title-wrap text-center">
+            <h2 class="gold-gradient-text" style="font-size: clamp(2rem, 4vw, 3rem); font-weight:800;">Explore Your Interests</h2>
+            <p class="section-subtitle">Dive into endless possibilities across art, technology, esports, and management.</p>
+          </div>
+
+          <div class="explore-cards-grid">
+            <div class="explore-card">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&fit=crop');"></div>
+              <div class="explore-gradient orange-grad"></div>
+              <div class="explore-card-content">
+                <span class="explore-badge">STAGE</span>
+                <h3>CULTURAL</h3>
+                <p>Dance, Music, Theatrics & Creative Arts</p>
+                <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <div class="explore-card">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&fit=crop');"></div>
+              <div class="explore-gradient red-grad"></div>
+              <div class="explore-card-content">
+                <span class="explore-badge">CONFERENCES</span>
+                <h3>EVENTS</h3>
+                <p>Workshops, Keynotes & Paper Presentations</p>
+                <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <div class="explore-card">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&fit=crop');"></div>
+              <div class="explore-gradient purple-grad"></div>
+              <div class="explore-card-content">
+                <span class="explore-badge">ARENA</span>
+                <h3>GAMES</h3>
+                <p>LAN Esports, Tactical Shooters & Sports Tournaments</p>
+                <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <div class="explore-card">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&fit=crop');"></div>
+              <div class="explore-gradient cyan-grad"></div>
+              <div class="explore-card-content">
+                <span class="explore-badge">CODE & CIRCUITS</span>
+                <h3>TECHNICAL</h3>
+                <p>Hackathons, RoboWars, Cloud & Web Design</p>
+                <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: FREQUENTLY ASKED QUESTIONS -->
+      <section class="faqs-section">
+        <div class="container">
+          <div class="section-title-wrap text-center">
+            <h2 class="gold-gradient-text" style="font-size: clamp(2rem, 4vw, 3rem); font-weight:800;">FAQs</h2>
+            <p class="section-subtitle">Answers to common queries regarding Sankalp participation and campus rules.</p>
+          </div>
+
+          <div class="faq-accordion-list">
+            <div class="faq-item">
+              <button class="faq-toggle">
+                <span>Who can participate in Sankalp?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="faq-collapse">
+                <p>Sankalp is open to all college students across India! Whether you are from NIST University or any other recognized institution, if you have a passion for cultural events, technical competitions, hackathons, or esports, you are warmly invited to participate.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-toggle">
+                <span>What kind of events are organized in Sankalp?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="faq-collapse">
+                <p>Sankalp features a diverse spectrum of events including cultural performances (dance, music, drama), technical competitions (coding, robotics, web designing, cloud hackathons), sports and LAN tournaments, fashion showcases (Mr. & Miss Sankalp), and celebrity star nights.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-toggle">
+                <span>How can teams register for competitions?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="faq-collapse">
+                <p>You can register directly on this website by heading over to the <strong>Events</strong> page, choosing your competition, and clicking <strong>Register</strong>. You can also contact the designated club representatives listed on the Clubs page.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-toggle">
+                <span>Is accommodation available for outstation participants?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="faq-collapse">
+                <p>Yes, NIST University provides on-campus hostel accommodation and cafeteria meals for verified outstation participants throughout the festival duration. Please select the accommodation option during registration.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 7: OUR VENUE -->
+      <section class="venue-section">
+        <div class="container">
+          <div class="section-title-wrap text-center">
+            <h2 class="gold-gradient-text" style="font-size: clamp(2rem, 4vw, 3rem); font-weight:800;">Our Venue</h2>
+            <p class="section-subtitle">NIST University, Institute Park, Pallur Hills, Berhampur, Odisha - 761008, India</p>
+          </div>
+
+          <div class="map-frame-wrapper">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.886026577317!2d84.85695677520857!3d19.20015528203525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3d573138b3017f%3A0x6b8014e6e66c6b84!2sNIST%20University!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+              class="venue-iframe" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="NIST University Campus Map">
+            </iframe>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ==========================================
+         VIEW 2: EVENTS PAGE (#/events)
+         ========================================== -->
+    <div id="view-events" class="page-view events-page-view">
+      <!-- Background Video for Events Page -->
+      <div class="events-bg-video-wrap">
+        <video class="events-bg-video" autoplay loop muted playsinline preload="auto">
+          <source src="Videos/bg.mp4" type="video/mp4">
+        </video>
+        <div class="events-video-overlay"></div>
+      </div>
+
+      <div class="page-header text-center">
+        <span class="gold-badge">SANKALP 26-27</span>
+        <h1 class="page-title gold-gradient-text">Festival Events</h1>
+        <p class="page-subtitle">Competitions across Coding, Robotics, Esports, Design, and Culture.</p>
+      </div>
+
+      <div class="container">
+        <!-- Event Filters & Search -->
+        <div class="events-toolbar">
+          <div class="search-input-wrap">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="event-search-input" placeholder="Search events by title, keyword, or club...">
+          </div>
+          <div class="club-filter-wrap">
+            <select id="event-club-filter" class="form-select">
+              <option value="ALL">All Clubs</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Events Grid (Rendered dynamically or empty state) -->
+        <div class="nist-events-grid" id="nist-events-container">
+          <!-- Populated dynamically via script.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         VIEW 3: CLUBS PAGE (#/club)
+         ========================================== -->
+    <div id="view-club" class="page-view">
+      <div class="page-header text-center">
+        <span class="gold-badge">NIST STUDENT CLUBS</span>
+        <h1 class="page-title gold-gradient-text">Explore Our Clubs</h1>
+        <p class="page-subtitle">The driving engines behind Sankalp. Technical, cultural, and sports clubs.</p>
+      </div>
+
+      <div class="container">
+        <div class="clubs-grid" id="nist-clubs-container">
+          <!-- Populated dynamically via script.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         VIEW 4: TEAMS PAGE (#/team)
+         ========================================== -->
+    <div id="view-team" class="page-view">
+      <div class="page-header text-center">
+        <span class="gold-badge">SANKALP COMMITTEE</span>
+        <h1 class="page-title gold-gradient-text">Meet The Team</h1>
+        <p class="page-subtitle">The dedicated student leads, coordinators, and faculty driving the symposium.</p>
+      </div>
+
+      <div class="container">
+        <!-- Committee Category Tabs -->
+        <div class="committee-tabs" id="committee-tabs">
+          <button class="com-tab active" data-com="Office Bearers">Office Bearers</button>
+          <button class="com-tab" data-com="Event">Event</button>
+          <button class="com-tab" data-com="Technical">Technical</button>
+          <button class="com-tab" data-com="Design">Design</button>
+          <button class="com-tab" data-com="Cultural">Cultural</button>
+          <button class="com-tab" data-com="Media">Media</button>
+          <button class="com-tab" data-com="Sponsorship">Sponsorship</button>
+          <button class="com-tab" data-com="Food">Food</button>
+          <button class="com-tab" data-com="Security">Security</button>
+          <button class="com-tab" data-com="Hospitality">Hospitality</button>
+          <button class="com-tab" data-com="Finance">Finance</button>
+        </div>
+
+        <div class="team-cards-grid" id="team-cards-container">
+          <!-- Populated dynamically via script.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         VIEW 5: GALLERY PAGE (#/gallery)
+         ========================================== -->
+    <div id="view-gallery" class="page-view">
+      <div class="page-header text-center">
+        <span class="gold-badge">SANKALP CHRONICLES</span>
+        <h1 class="page-title gold-gradient-text">Festival Gallery</h1>
+        <p class="page-subtitle">Relive the energy, star nights, robot clashes, and celebration moments.</p>
+      </div>
+
+      <div class="container">
+        <div class="gallery-masonry-grid" id="gallery-container">
+          <!-- Populated dynamically via script.js -->
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==============================================
+       4. OFFICIAL FOOTER (Clean Placeholder Template)
+       ============================================== -->
+  <footer class="nist-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Column 1: NIST University & Brand -->
+        <div class="footer-col">
+          <div class="footer-brand">
+            <img src="assets/images/nist_logo.png" alt="NIST Logo" class="footer-nist-logo" onerror="this.src='assets/images/logo.png'">
+            <div>
+              <h3 class="footer-uni-title">NIST University</h3>
+              <p class="footer-uni-sub">Institute Park, Pallur Hills, Berhampur, Odisha - 761008, India</p>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Sankalp is the annual national techno-management and science symposium organized by NIST University, nurturing technical mastery, innovation, and cultural camaraderie.
+          </p>
+        </div>
+
+        <!-- Column 2: Office Bearer Contacts (Ready for new details) -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Office Bearers</h4>
+          <div class="bearer-contact-list">
+            <div class="bearer-item">
+              <span class="bearer-role">President</span>
+              <strong class="bearer-name">To Be Announced</strong>
+              <span class="bearer-phone"><i class="fa-solid fa-phone"></i> +91 XXXXX XXXXX</span>
+            </div>
+            <div class="bearer-item">
+              <span class="bearer-role">Secretary</span>
+              <strong class="bearer-name">To Be Announced</strong>
+              <span class="bearer-phone"><i class="fa-solid fa-phone"></i> +91 XXXXX XXXXX</span>
+            </div>
+            <div class="bearer-item">
+              <span class="bearer-role">Treasurer</span>
+              <strong class="bearer-name">To Be Announced</strong>
+              <span class="bearer-phone"><i class="fa-solid fa-phone"></i> +91 XXXXX XXXXX</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3: Get in Touch & Socials -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Get in Touch</h4>
+          <div class="footer-contact-links">
+            <a href="mailto:sankalp@nist.edu" class="contact-link"><i class="fa-solid fa-envelope"></i> sankalp@nist.edu</a>
+            <a href="https://instagram.com/sankalpnist" target="_blank" rel="noopener noreferrer" class="contact-link"><i class="fa-brands fa-instagram"></i> @sankalpnist</a>
+            <a href="https://nist.edu" target="_blank" rel="noopener noreferrer" class="contact-link"><i class="fa-solid fa-globe"></i> nist.edu</a>
+          </div>
+          <div class="footer-social-icons">
+            <a href="https://instagram.com/sankalpnist" target="_blank" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com/@nistuniversity" target="_blank" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://facebook.com/NISTBerhampur" target="_blank" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://linkedin.com/school/nist-berhampur" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Credits Bar -->
+      <div class="footer-bottom-bar">
+        <div class="credits-left">
+          <span>#SANKALP 2026-27</span>
+          <span class="sep">•</span>
+          <span>Made with passion by Sankalp Tech Team</span>
+        </div>
+        <div class="credits-right">
+          <span>&copy; 2026-2027 SANKALP - NIST University. All Rights Reserved.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==============================================
+       5. INTERACTIVE REGISTRATION MODAL
+       ============================================== -->
+  <div class="modal-backdrop" id="register-modal">
+    <div class="modal-window">
+      <button class="modal-close-btn" id="modal-close" aria-label="Close Modal">&times;</button>
+      <div class="modal-header">
+        <span class="gold-badge">OFFICIAL ENTRY</span>
+        <h2>REGISTER FOR <span class="gold-gradient-text">SANKALP</span></h2>
+        <p>Join students across India in the ultimate techno-management celebration.</p>
+      </div>
+
+      <form id="sankalp-registration-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name / Team Leader</label>
+            <input type="text" id="reg-name" required placeholder="Your Name" class="form-input">
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="reg-email" required placeholder="your.email@college.edu" class="form-input">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>WhatsApp Contact</label>
+            <input type="tel" id="reg-phone" required placeholder="+91 XXXXX XXXXX" class="form-input">
+          </div>
+          <div class="form-group">
+            <label>College / University</label>
+            <input type="text" id="reg-college" required placeholder="Your College / Institute" class="form-input">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Select Competition / Track</label>
+            <select id="reg-event" class="form-input select-input" required>
+              <option value="All-Access Festival Pass">All-Access Festival Pass (General Entry)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Team Size</label>
+            <select id="reg-team-size" class="form-input select-input">
+              <option value="1">Solo (Individual)</option>
+              <option value="2">Duo (2 Members)</option>
+              <option value="3">Trio (3 Members)</option>
+              <option value="4" selected>Squad (4 Members)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Campus Accommodation Required?</label>
+          <div class="radio-toggle-group">
+            <label><input type="radio" name="acc" value="no" checked> No (Local)</label>
+            <label><input type="radio" name="acc" value="yes"> Yes (NIST Hostel)</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-gold w-100 modal-submit-btn">
+          <span>Confirm Registration</span>
+          <i class="fa-solid fa-check"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX MODAL FOR GALLERY -->
+  <div class="modal-backdrop lightbox-modal" id="lightbox-modal">
+    <div class="lightbox-content">
+      <button class="modal-close-btn lightbox-close" id="lightbox-close">&times;</button>
+      <img src="" alt="Sankalp Gallery Moment" id="lightbox-img" class="lightbox-image">
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-notification" id="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toast-message">Action successful!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

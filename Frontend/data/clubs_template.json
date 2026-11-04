@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Club Name Here",
+    "description": "Short description of the club, vision, and activities.",
+    "logo": "assets/images/logo.png",
+    "president": {
+      "name": "President Name",
+      "contact": "9876543210"
+    },
+    "representative": {
+      "name": "Representative Name",
+      "contact": "9876543211"
+    },
+    "socials": {
+      "website": "https://example.com",
+      "instagram": "https://instagram.com/club_handle",
+      "linkedin": "https://linkedin.com/company/club_handle"
+    }
+  }
+]

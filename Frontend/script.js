@@ -1,4 +1,4 @@
-﻿const CLUBS_DATA = [];
+const CLUBS_DATA = [];
 const EVENTS_DATA = [];
 const STARS_DATA = [];
 
@@ -67,9 +67,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function closePreloader() {
+    if (preloaderClosed) return;
+    preloaderClosed = true;
+
+    if (simulatedTimer) clearInterval(simulatedTimer);
+    if (safetyTimer) clearTimeout(safetyTimer);
+    updateHUDProgress(100);
+
+    if (preloader) {
+      preloader.classList.add('fade-out');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+        if (video) {
+          try { video.pause(); } catch (e) {}
+        }
+      }, 700);
+    }
+
+    document.body.classList.remove('is-loading');
+  }
+
+  // Fallback simulation timer: counts to 100% and unlocks portal
+  function startFallbackLoading() {
+    if (simulatedTimer) return;
+    simulatedTimer = setInterval(() => {
+      simulatedProgress += Math.floor(Math.random() * 10) + 12;
+      if (simulatedProgress >= 100) {
+        simulatedProgress = 100;
+        updateHUDProgress(100);
+        clearInterval(simulatedTimer);
+        setTimeout(closePreloader, 350);
+      } else {
+        updateHUDProgress(simulatedProgress);
+      }
+    }, 120);
+  }
+
+  // Absolute safety watchdog: Guarantee portal unlocks within 3.5s regardless of browser/video state
+  const safetyTimer = setTimeout(() => {
+    closePreloader();
+  }, 3500);
+
   if (video) {
     video.addEventListener('timeupdate', () => {
-      if (video.duration && !isNaN(video.duration)) {
+      if (video.duration && !isNaN(video.duration) && video.duration > 0) {
         const percent = (video.currentTime / video.duration) * 100;
         updateHUDProgress(Math.max(percent, simulatedProgress));
       }
@@ -77,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     video.addEventListener('ended', () => {
       updateHUDProgress(100);
-      setTimeout(closePreloader, 400);
+      setTimeout(closePreloader, 250);
     });
 
     video.addEventListener('error', () => {
@@ -87,44 +129,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const playPromise = video.play();
     if (playPromise !== undefined) {
       playPromise.catch(() => {
+        // Autoplay policy muted fallback
         video.muted = true;
-        video.play().catch(() => startFallbackLoading());
+        const retryPromise = video.play();
+        if (retryPromise !== undefined) {
+          retryPromise.catch(() => {
+            startFallbackLoading();
+          });
+        }
       });
     }
+  } else {
+    startFallbackLoading();
   }
 
-  function startFallbackLoading() {
-    if (simulatedTimer) return;
-    simulatedTimer = setInterval(() => {
-      if (simulatedProgress < 99) {
-        simulatedProgress += Math.floor(Math.random() * 8) + 4;
-        if (simulatedProgress > 99) simulatedProgress = 99;
-        updateHUDProgress(simulatedProgress);
-      }
-    }, 150);
-  }
-  startFallbackLoading();
-
-  function closePreloader() {
-    if (preloaderClosed) return;
-    preloaderClosed = true;
-
-    if (simulatedTimer) clearInterval(simulatedTimer);
-    updateHUDProgress(100);
-
-    preloader.classList.add('fade-out');
-    document.body.classList.remove('is-loading');
-
-    setTimeout(() => {
-      preloader.style.display = 'none';
-      if (video) video.pause();
-    }, 850);
+  if (skipBtn) {
+    skipBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closePreloader();
+    });
   }
 
-  if (skipBtn) skipBtn.addEventListener('click', closePreloader);
+  // Allow clicking preloader overlay to enter festival immediately
+  if (preloader) {
+    preloader.addEventListener('click', (e) => {
+      if (e.target.closest('#toggle-audio-btn')) return;
+      closePreloader();
+    });
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' || e.key === ' ' || e.key === 'Enter') {
+      closePreloader();
+    }
+  });
 
   if (toggleAudioBtn && video) {
-    toggleAudioBtn.addEventListener('click', () => {
+    toggleAudioBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       if (video.muted) {
         video.muted = false;
         audioIcon.className = 'fa-solid fa-volume-high';
@@ -136,23 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-
-  function replayPreloader() {
-    preloaderClosed = false;
-    simulatedProgress = 0;
-    preloader.style.display = 'flex';
-    preloader.classList.remove('fade-out');
-    document.body.classList.add('is-loading');
-
-    if (video) {
-      video.currentTime = 0;
-      video.play().catch(e => console.log(e));
-    }
-    updateHUDProgress(0);
-    startFallbackLoading();
-  }
-
-
 
 
   // ==========================================================================
@@ -275,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
           '<div class="empty-state-icon"><i class="fa-solid fa-users-gear"></i></div>' +
           '<h3 class="empty-state-title">Clubs To Be Announced</h3>' +
           '<p class="empty-state-desc">The list of participating student clubs and chapters will be published soon. Stay tuned for updates!</p>' +
-          '<span class="empty-state-badge">âœ¦ Awaiting New Club Uploads</span>' +
+          '<span class="empty-state-badge"><i class="fa-solid fa-clock"></i> Awaiting New Club Uploads</span>' +
         '</div>'
       );
       return;
@@ -288,15 +313,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const linkedSocial = club.socials && club.socials.linkedin ? '<a href="' + club.socials.linkedin + '" target="_blank" class="club-social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>' : '';
 
       const presName = (club.president && club.president.name) ? club.president.name : 'Lead Coordinator';
-      const presContact = (club.president && club.president.contact) ? '<a href="tel:' + club.president.contact + '">(ðŸ“ž ' + club.president.contact + ')</a>' : '';
+      const presContact = (club.president && club.president.contact) ? '<a href="tel:' + club.president.contact + '" class="phone-link"><i class="fa-solid fa-phone"></i> ' + club.president.contact + '</a>' : '';
 
       const repName = (club.representative && club.representative.name) ? club.representative.name : '';
-      const repContact = (club.representative && club.representative.contact) ? '<a href="tel:' + club.representative.contact + '">(ðŸ“ž ' + club.representative.contact + ')</a>' : '';
+      const repContact = (club.representative && club.representative.contact) ? '<a href="tel:' + club.representative.contact + '" class="phone-link"><i class="fa-solid fa-phone"></i> ' + club.representative.contact + '</a>' : '';
 
       const repHtml = repName ? (
         '<div class="club-lead-entry">' +
           '<span class="lead-role">Representative:</span>' +
-          '<span class="lead-name-phone">' + repName + ' ' + repContact + '</span>' +
+          '<span class="lead-name-phone">' + repName + ' ' + presContact + '</span>' +
         '</div>'
       ) : '';
 
@@ -363,7 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
           '<div class="empty-state-icon"><i class="fa-solid fa-trophy"></i></div>' +
           '<h3 class="empty-state-title">Events To Be Revealed</h3>' +
           '<p class="empty-state-desc">The competition schedule, problem statements, and prize pools will be released shortly. Stay tuned for registrations!</p>' +
-          '<span class="empty-state-badge">âœ¦ Awaiting New Event Uploads</span>' +
+          '<span class="empty-state-badge"><i class="fa-solid fa-clock"></i> Awaiting New Event Uploads</span>' +
         '</div>'
       );
       return;
@@ -458,7 +483,7 @@ document.addEventListener('DOMContentLoaded', () => {
           '<div class="empty-state-icon"><i class="fa-solid fa-id-card-clip"></i></div>' +
           '<h3 class="empty-state-title">' + comName + ' Committee</h3>' +
           '<p class="empty-state-desc">The designated leads and members for this committee will be announced soon.</p>' +
-          '<span class="empty-state-badge">âœ¦ Awaiting Committee Roster</span>' +
+          '<span class="empty-state-badge"><i class="fa-solid fa-clock"></i> Awaiting Committee Roster</span>' +
         '</div>'
       );
       return;
@@ -502,7 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
           '<div class="empty-state-icon"><i class="fa-solid fa-images"></i></div>' +
           '<h3 class="empty-state-title">Gallery Moments</h3>' +
           '<p class="empty-state-desc">Festival snapshots, video highlights, and memories will be showcased here once the event kicks off.</p>' +
-          '<span class="empty-state-badge">âœ¦ Photos Coming Soon</span>' +
+          '<span class="empty-state-badge"><i class="fa-solid fa-camera"></i> Photos Coming Soon</span>' +
         '</div>'
       );
     } else {
@@ -609,7 +634,7 @@ document.addEventListener('DOMContentLoaded', () => {
       registerModal.classList.remove('open');
       regForm.reset();
 
-      showToast('âš¡ Registration Confirmed! Pass ID: ' + passId + ' generated for ' + name + ' (' + ev + '). See you at NIST Sankalp!');
+      showToast('Registration Confirmed! Pass ID: ' + passId + ' generated for ' + name + ' (' + ev + '). See you at NIST Sankalp 26-27!');
     });
   }
 

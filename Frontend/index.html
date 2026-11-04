@@ -16,6 +16,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <link rel="stylesheet" href="style.css">
+  <script>
+    // Failsafe auto-unlock: guarantees website unlocks even if external fonts/network lag
+    setTimeout(function() {
+      if (document.body && document.body.classList.contains('is-loading')) {
+        var p = document.getElementById('preloader');
+        if (p) p.classList.add('fade-out');
+        document.body.classList.remove('is-loading');
+        setTimeout(function() { if (p) p.style.display = 'none'; }, 600);
+      }
+    }, 3800);
+  </script>
 </head>
 <body class="is-loading">
 

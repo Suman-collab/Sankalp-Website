@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     clubsContainer.innerHTML = clubs.map(club => {
-      const logoUrl = club.logo || 'assets/images/logo.png';
+      const logoUrl = club.logo || 'assets/images/sankalp_emblem.png';
       const webSocial = club.socials && club.socials.website ? '<a href="' + club.socials.website + '" target="_blank" class="club-social-btn" title="Website"><i class="fa-solid fa-globe"></i></a>' : '';
       const instaSocial = club.socials && club.socials.instagram ? '<a href="' + club.socials.instagram + '" target="_blank" class="club-social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>' : '';
       const linkedSocial = club.socials && club.socials.linkedin ? '<a href="' + club.socials.linkedin + '" target="_blank" class="club-social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>' : '';

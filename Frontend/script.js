@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     clubsContainer.innerHTML = clubs.map(club => {
-      const logoUrl = club.logo || 'assets/images/sankalp_emblem.png';
+      const logoUrl = club.logo || 'assets/images/Sankalp_Final_Logo_Transparent.png';
       const webSocial = club.socials && club.socials.website ? '<a href="' + club.socials.website + '" target="_blank" class="club-social-btn" title="Website"><i class="fa-solid fa-globe"></i></a>' : '';
       const instaSocial = club.socials && club.socials.instagram ? '<a href="' + club.socials.instagram + '" target="_blank" class="club-social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>' : '';
       const linkedSocial = club.socials && club.socials.linkedin ? '<a href="' + club.socials.linkedin + '" target="_blank" class="club-social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>' : '';
@@ -328,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return (
         '<div class="club-card">' +
           '<div class="club-header">' +
-            '<img src="' + logoUrl + '" alt="' + club.name + '" class="club-logo" onerror="this.src=\'assets/images/sankalp_emblem.png\'">' +
+            '<img src="' + logoUrl + '" alt="' + club.name + '" class="club-logo" onerror="this.src=\'assets/images/Sankalp_Final_Logo_Transparent.png\'">' +
             '<h3 class="club-name">' + club.name + '</h3>' +
           '</div>' +
           '<p class="club-desc">' + (club.description || 'Student club under NIST University driving technical and cultural excellence.') + '</p>' +
@@ -492,7 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
     teamCardsContainer.innerHTML = members.map(m => (
       '<div class="team-member-card">' +
         '<div class="member-avatar-wrap">' +
-          '<img src="' + m.avatar + '" alt="' + m.name + '" class="member-avatar" onerror="this.src=\'assets/images/sankalp_emblem.png\'">' +
+          '<img src="' + m.avatar + '" alt="' + m.name + '" class="member-avatar" onerror="this.src=\'assets/images/Sankalp_Final_Logo_Transparent.png\'">' +
         '</div>' +
         '<h3 class="member-name">' + m.name + '</h3>' +
         '<span class="member-role">' + m.role + '</span>' +

@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "name": "Renewable Energy Club (REC)",
+    "shortName": "REC",
+    "description": "Pioneering sustainable engineering, clean energy research, solar photovoltaics, EV technology, and environmental innovation under NIST University.",
+    "logo": "assets/images/rec_club_logo.png",
+    "president": {
+      "name": "Suman Patra",
+      "contact": "+91 94392 10842"
+    },
+    "representative": {
+      "name": "Rudra Sahu",
+      "contact": "+91 82490 61730"
+    },
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/rec_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 1
+  },
+  {
+    "name": "Club Excel",
+    "shortName": "Excel",
+    "description": "NIST's premier technical and software development society focusing on full-stack architecture, competitive programming, and AI hackathons.",
+    "logo": "assets/images/Sankalp_Final_Logo_Transparent.png",
+    "president": {
+      "name": "Technical Lead",
+      "contact": "+91 98765 43212"
+    },
+    "representative": {
+      "name": "Student Secretary",
+      "contact": "+91 98765 43213"
+    },
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/clubexcel_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 1
+  },
+  {
+    "name": "Robotics Club",
+    "shortName": "Robotics",
+    "description": "Fostering robotics design, autonomous rover builds, IoT automation, drone racing, and high-octane Robo-War combat at NIST University.",
+    "logo": "assets/images/Sankalp_Final_Logo_Transparent.png",
+    "president": {
+      "name": "Robotics Lead",
+      "contact": "+91 98765 43214"
+    },
+    "representative": {
+      "name": "Robotics Co-Lead",
+      "contact": "+91 98765 43215"
+    },
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/robotics_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 1
+  }
+]

@@ -92,24 +92,28 @@ document.addEventListener('DOMContentLoaded', () => {
   function startFallbackLoading() {
     if (simulatedTimer) return;
     simulatedTimer = setInterval(() => {
-      simulatedProgress += Math.floor(Math.random() * 10) + 12;
+      simulatedProgress += Math.floor(Math.random() * 8) + 6;
       if (simulatedProgress >= 100) {
         simulatedProgress = 100;
         updateHUDProgress(100);
         clearInterval(simulatedTimer);
-        setTimeout(closePreloader, 350);
+        setTimeout(closePreloader, 400);
       } else {
         updateHUDProgress(simulatedProgress);
       }
-    }, 120);
+    }, 150);
   }
 
-  // Absolute safety watchdog: Guarantee portal unlocks within 3.5s regardless of browser/video state
+  // Generous emergency safety watchdog: only unlocks portal if video completely fails or stalls > 12s
   const safetyTimer = setTimeout(() => {
     closePreloader();
-  }, 3500);
+  }, 12000);
 
   if (video) {
+    // Explicitly guarantee muted autoplay compliance
+    video.muted = true;
+    video.defaultMuted = true;
+
     video.addEventListener('timeupdate', () => {
       if (video.duration && !isNaN(video.duration) && video.duration > 0) {
         const percent = (video.currentTime / video.duration) * 100;
@@ -119,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     video.addEventListener('ended', () => {
       updateHUDProgress(100);
-      setTimeout(closePreloader, 250);
+      setTimeout(closePreloader, 400);
     });
 
     video.addEventListener('error', () => {
@@ -146,14 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (skipBtn) {
     skipBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      closePreloader();
-    });
-  }
-
-  // Allow clicking preloader overlay to enter festival immediately
-  if (preloader) {
-    preloader.addEventListener('click', (e) => {
-      if (e.target.closest('#toggle-audio-btn')) return;
       closePreloader();
     });
   }
@@ -207,10 +203,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (targetView) {
       targetView.classList.add('active');
-      if (hash === '/events') {
-        const evVideo = targetView.querySelector('.events-bg-video');
-        if (evVideo) evVideo.play().catch(() => {});
-      }
     }
 
     navLinks.forEach(link => {
@@ -226,6 +218,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const mobileMenu = document.getElementById('mobile-menu');
     if (mobileMenu) mobileMenu.classList.remove('active');
+
+    // Trigger scroll reveals on newly active view
+    setTimeout(() => {
+      if (targetView) initScrollReveals(targetView);
+    }, 80);
+  }
+
+  // ==========================================================================
+  // 3. EVENTS AMBIENT INTERACTIVITY (Interactive Cosmic Aura)
+  // ==========================================================================
+  const eventsView = document.getElementById('view-events');
+  const eventsGlow = document.getElementById('events-interactive-glow');
+
+  if (eventsView && eventsGlow) {
+    eventsView.addEventListener('mousemove', (e) => {
+      const rect = eventsView.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      eventsGlow.style.left = x + 'px';
+      eventsGlow.style.top = y + 'px';
+      eventsGlow.style.opacity = '1';
+    });
+
+    eventsView.addEventListener('mouseleave', () => {
+      eventsGlow.style.opacity = '0';
+    });
   }
 
   window.addEventListener('hashchange', handleRoute);
@@ -233,19 +251,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 3. NAVBAR SCROLL & MOBILE TOGGLE
+  // 3. HARDWARE-ACCELERATED SCROLL & REVEAL ENGINE
   // ==========================================================================
   const navbar = document.getElementById('navbar');
   const mobileToggle = document.getElementById('mobile-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
 
+  // Throttled passive scroll listener for navbar
+  let isScrollTicking = false;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
+    if (!isScrollTicking) {
+      window.requestAnimationFrame(() => {
+        if (navbar) {
+          if (window.scrollY > 40) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        }
+        isScrollTicking = false;
+      });
+      isScrollTicking = true;
     }
-  });
+  }, { passive: true });
 
   if (mobileToggle && mobileMenu) {
     mobileToggle.addEventListener('click', () => {
@@ -253,13 +281,80 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Optimized IntersectionObserver for 60/120fps scroll reveals
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+
+        // Check if element has count-up statistics
+        if (entry.target.hasAttribute('data-target')) {
+          animateCountUp(entry.target);
+        }
+        const innerCounters = entry.target.querySelectorAll('[data-target]');
+        innerCounters.forEach(stat => animateCountUp(stat));
+
+        // Free up memory: unobserve once revealed
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    root: null,
+    threshold: 0.12,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  function initScrollReveals(root = document) {
+    const elements = root.querySelectorAll('.reveal-on-scroll, .reveal-scale, .reveal-left, .reveal-right');
+    elements.forEach(el => {
+      if (!el.classList.contains('is-revealed')) {
+        revealObserver.observe(el);
+      }
+    });
+  }
+
+  // Live count-up animation for symposium statistics
+  function animateCountUp(el) {
+    if (el.dataset.animated === 'true') return;
+    el.dataset.animated = 'true';
+
+    const target = parseInt(el.getAttribute('data-target'), 10);
+    const suffix = el.getAttribute('data-suffix') || '';
+    if (isNaN(target)) return;
+
+    const numSpan = el.querySelector('.stat-number');
+    if (!numSpan) return;
+
+    const duration = 1800; // ms
+    const startTime = performance.now();
+
+    function updateCounter(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Smooth cubic ease-out
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(easeOut * target);
+
+      numSpan.textContent = current + (progress === 1 ? suffix : '');
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      } else {
+        numSpan.textContent = target + suffix;
+      }
+    }
+
+    requestAnimationFrame(updateCounter);
+  }
+
+  // Initialize scroll reveals on initial load
+  initScrollReveals();
+
 
   // ==========================================================================
-  // 4. LIVE COUNTDOWN TIMER
+  // 4. LIVE COUNTDOWN TIMER (Target: 26th November 2026)
   // ==========================================================================
-  const festDate = new Date();
-  festDate.setDate(festDate.getDate() + 14);
-  festDate.setHours(9, 0, 0, 0);
+  const festDate = new Date('2026-11-26T09:00:00+05:30');
 
   function updateCountdown() {
     const diff = festDate.getTime() - new Date().getTime();
@@ -296,17 +391,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (clubs.length === 0) {
       clubsContainer.innerHTML = (
-        '<div class="empty-state-box">' +
+        '<div class="empty-state-box reveal-scale">' +
           '<div class="empty-state-icon"><i class="fa-solid fa-users-gear"></i></div>' +
           '<h3 class="empty-state-title">Clubs To Be Announced</h3>' +
           '<p class="empty-state-desc">The list of participating student clubs and chapters will be published soon. Stay tuned for updates!</p>' +
           '<span class="empty-state-badge"><i class="fa-solid fa-clock"></i> Awaiting New Club Uploads</span>' +
         '</div>'
       );
+      initScrollReveals(clubsContainer);
       return;
     }
 
-    clubsContainer.innerHTML = clubs.map(club => {
+    clubsContainer.innerHTML = clubs.map((club, idx) => {
       const logoUrl = club.logo || 'assets/images/Sankalp_Final_Logo_Transparent.png';
       const webSocial = club.socials && club.socials.website ? '<a href="' + club.socials.website + '" target="_blank" class="club-social-btn" title="Website"><i class="fa-solid fa-globe"></i></a>' : '';
       const instaSocial = club.socials && club.socials.instagram ? '<a href="' + club.socials.instagram + '" target="_blank" class="club-social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>' : '';
@@ -325,8 +421,10 @@ document.addEventListener('DOMContentLoaded', () => {
         '</div>'
       ) : '';
 
+      const delayClass = 'delay-' + ((idx % 3) + 1);
+
       return (
-        '<div class="club-card">' +
+        '<div class="club-card reveal-scale ' + delayClass + '">' +
           '<div class="club-header">' +
             '<img src="' + logoUrl + '" alt="' + club.name + '" class="club-logo" onerror="this.src=\'assets/images/Sankalp_Final_Logo_Transparent.png\'">' +
             '<h3 class="club-name">' + club.name + '</h3>' +
@@ -346,6 +444,8 @@ document.addEventListener('DOMContentLoaded', () => {
         '</div>'
       );
     }).join('');
+
+    initScrollReveals(clubsContainer);
 
     if (clubFilterSelect) {
       clubFilterSelect.innerHTML = '<option value="ALL">All Clubs</option>';
@@ -378,29 +478,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   const eventsContainer = document.getElementById('nist-events-container');
   const eventSearchInput = document.getElementById('event-search-input');
-  const regEventSelect = document.getElementById('reg-event');
 
   function renderEvents(items) {
     if (!eventsContainer) return;
     if (!items || items.length === 0) {
       eventsContainer.innerHTML = (
-        '<div class="empty-state-box">' +
+        '<div class="empty-state-box reveal-scale">' +
           '<div class="empty-state-icon"><i class="fa-solid fa-trophy"></i></div>' +
           '<h3 class="empty-state-title">Events To Be Revealed</h3>' +
-          '<p class="empty-state-desc">The competition schedule, problem statements, and prize pools will be released shortly. Stay tuned for registrations!</p>' +
-          '<span class="empty-state-badge"><i class="fa-solid fa-clock"></i> Awaiting New Event Uploads</span>' +
+          '<p class="empty-state-desc">The competition schedule, problem statements, and prize pools will be released shortly. Stay tuned for announcements!</p>' +
+          '<span class="empty-state-badge"><i class="fa-solid fa-clock"></i> Awaiting Event Uploads</span>' +
         '</div>'
       );
+      initScrollReveals(eventsContainer);
       return;
     }
 
-    eventsContainer.innerHTML = items.map(event => {
+    eventsContainer.innerHTML = items.map((event, idx) => {
       const imgUrl = event.image || 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&fit=crop';
       const venueStr = event.venue ? event.venue.trim() : 'NIST Campus';
       const dateStr = event.date ? new Date(event.date).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Fest Day';
+      const delayClass = 'delay-' + ((idx % 3) + 1);
 
       return (
-        '<div class="nist-event-card">' +
+        '<div class="nist-event-card reveal-scale ' + delayClass + '">' +
           '<div class="event-thumb-wrap">' +
             '<img src="' + imgUrl + '" alt="' + event.eventName + '" class="event-thumb" onerror="this.src=\'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&fit=crop\'">' +
             '<span class="event-club-tag">' + (event.clubName || 'Sankalp Competition') + '</span>' +
@@ -413,34 +514,14 @@ document.addEventListener('DOMContentLoaded', () => {
             '<h3 class="event-heading">' + event.eventName + '</h3>' +
             '<p class="event-desc">' + (event.eventDescription || 'Compete in this flagship symposium event and showcase your skills.') + '</p>' +
             '<div class="event-actions-row">' +
-              '<button class="btn btn-gold w-100 trigger-event-register-btn" data-event-name="' + event.eventName + '">Register Now</button>' +
+              '<span class="event-action-badge"><i class="fa-solid fa-trophy"></i> Flagship Competition</span>' +
             '</div>' +
           '</div>' +
         '</div>'
       );
     }).join('');
 
-    // Update registration select options
-    if (regEventSelect && items.length > 0) {
-      regEventSelect.innerHTML = '<option value="">-- Choose Competition --</option>';
-      items.forEach(ev => {
-        const opt = document.createElement('option');
-        opt.value = ev.eventName;
-        opt.textContent = ev.eventName + (ev.clubName ? ' (' + ev.clubName + ')' : '');
-        regEventSelect.appendChild(opt);
-      });
-      const passOpt = document.createElement('option');
-      passOpt.value = 'All-Access Festival Pass';
-      passOpt.textContent = 'All-Access Festival Pass (General Entry)';
-      regEventSelect.appendChild(passOpt);
-    }
-
-    document.querySelectorAll('.trigger-event-register-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const name = btn.getAttribute('data-event-name');
-        openRegisterModal(name);
-      });
-    });
+    initScrollReveals(eventsContainer);
   }
 
   function filterEvents() {
@@ -479,26 +560,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (members.length === 0) {
       teamCardsContainer.innerHTML = (
-        '<div class="empty-state-box">' +
+        '<div class="empty-state-box reveal-scale">' +
           '<div class="empty-state-icon"><i class="fa-solid fa-id-card-clip"></i></div>' +
           '<h3 class="empty-state-title">' + comName + ' Committee</h3>' +
           '<p class="empty-state-desc">The designated leads and members for this committee will be announced soon.</p>' +
           '<span class="empty-state-badge"><i class="fa-solid fa-clock"></i> Awaiting Committee Roster</span>' +
         '</div>'
       );
+      initScrollReveals(teamCardsContainer);
       return;
     }
 
-    teamCardsContainer.innerHTML = members.map(m => (
-      '<div class="team-member-card">' +
-        '<div class="member-avatar-wrap">' +
-          '<img src="' + m.avatar + '" alt="' + m.name + '" class="member-avatar" onerror="this.src=\'assets/images/Sankalp_Final_Logo_Transparent.png\'">' +
-        '</div>' +
-        '<h3 class="member-name">' + m.name + '</h3>' +
-        '<span class="member-role">' + m.role + '</span>' +
-        (m.phone ? ('<a href="tel:' + m.phone + '" class="member-phone"><i class="fa-solid fa-phone"></i> ' + m.phone + '</a>') : '') +
-      '</div>'
-    )).join('');
+    teamCardsContainer.innerHTML = members.map((m, idx) => {
+      const delayClass = 'delay-' + ((idx % 4) + 1);
+      return (
+        '<div class="team-member-card reveal-scale ' + delayClass + '">' +
+          '<div class="member-avatar-wrap">' +
+            '<img src="' + m.avatar + '" alt="' + m.name + '" class="member-avatar" onerror="this.src=\'assets/images/Sankalp_Final_Logo_Transparent.png\'">' +
+          '</div>' +
+          '<h3 class="member-name">' + m.name + '</h3>' +
+          '<span class="member-role">' + m.role + '</span>' +
+          (m.phone ? ('<a href="tel:' + m.phone + '" class="member-phone"><i class="fa-solid fa-phone"></i> ' + m.phone + '</a>') : '') +
+        '</div>'
+      );
+    }).join('');
+
+    initScrollReveals(teamCardsContainer);
   }
 
   comTabs.forEach(tab => {
@@ -523,22 +610,28 @@ document.addEventListener('DOMContentLoaded', () => {
   if (galleryContainer) {
     if (GALLERY_PHOTOS.length === 0) {
       galleryContainer.innerHTML = (
-        '<div class="empty-state-box">' +
+        '<div class="empty-state-box reveal-scale">' +
           '<div class="empty-state-icon"><i class="fa-solid fa-images"></i></div>' +
           '<h3 class="empty-state-title">Gallery Moments</h3>' +
           '<p class="empty-state-desc">Festival snapshots, video highlights, and memories will be showcased here once the event kicks off.</p>' +
           '<span class="empty-state-badge"><i class="fa-solid fa-camera"></i> Photos Coming Soon</span>' +
         '</div>'
       );
+      initScrollReveals(galleryContainer);
     } else {
-      galleryContainer.innerHTML = GALLERY_PHOTOS.map((src, i) => (
-        '<div class="gallery-item" data-src="' + src + '">' +
-          '<img src="' + src + '" alt="Sankalp Photo ' + (i+1) + '" class="gallery-photo" loading="lazy">' +
-          '<div class="gallery-overlay">' +
-            '<i class="fa-solid fa-expand"></i>' +
-          '</div>' +
-        '</div>'
-      )).join('');
+      galleryContainer.innerHTML = GALLERY_PHOTOS.map((src, i) => {
+        const delayClass = 'delay-' + ((i % 4) + 1);
+        return (
+          '<div class="gallery-item reveal-scale ' + delayClass + '" data-src="' + src + '">' +
+            '<img src="' + src + '" alt="Sankalp Photo ' + (i+1) + '" class="gallery-photo" loading="lazy">' +
+            '<div class="gallery-overlay">' +
+              '<i class="fa-solid fa-expand"></i>' +
+            '</div>' +
+          '</div>'
+        );
+      }).join('');
+
+      initScrollReveals(galleryContainer);
 
       document.querySelectorAll('.gallery-item').forEach(item => {
         item.addEventListener('click', () => {
@@ -577,66 +670,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 10. REGISTRATION MODAL CONTROLLER
+  // 10. TOAST NOTIFICATION UTILITY
   // ==========================================================================
-  const registerModal = document.getElementById('register-modal');
-  const modalClose = document.getElementById('modal-close');
-  const regForm = document.getElementById('sankalp-registration-form');
   const toast = document.getElementById('toast');
   const toastMessage = document.getElementById('toast-message');
-
-  function openRegisterModal(preselectedEvent = '') {
-    if (preselectedEvent && regEventSelect) {
-      let exists = false;
-      for (let i = 0; i < regEventSelect.options.length; i++) {
-        if (regEventSelect.options[i].text.includes(preselectedEvent) || regEventSelect.options[i].value.includes(preselectedEvent)) {
-          regEventSelect.selectedIndex = i;
-          exists = true;
-          break;
-        }
-      }
-      if (!exists) {
-        const newOpt = document.createElement('option');
-        newOpt.value = preselectedEvent;
-        newOpt.textContent = preselectedEvent;
-        newOpt.selected = true;
-        regEventSelect.appendChild(newOpt);
-      }
-    }
-    if (registerModal) registerModal.classList.add('open');
-  }
-
-  document.querySelectorAll('.open-register-btn').forEach(btn => {
-    btn.addEventListener('click', () => openRegisterModal());
-  });
-
-  if (modalClose && registerModal) {
-    modalClose.addEventListener('click', () => {
-      registerModal.classList.remove('open');
-    });
-    registerModal.addEventListener('click', (e) => {
-      if (e.target === registerModal) registerModal.classList.remove('open');
-    });
-  }
-
-  if (regForm) {
-    regForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('reg-name').value;
-      const email = document.getElementById('reg-email').value;
-      const phone = document.getElementById('reg-phone').value;
-      const college = document.getElementById('reg-college').value;
-      const ev = (regEventSelect && regEventSelect.value) ? regEventSelect.value : 'General Festival Entry';
-      const teamSize = document.getElementById('reg-team-size')?.value || '1';
-      const accommodation = document.querySelector('input[name="acc"]:checked')?.value || 'no';
-      const passId = 'NIST-SKP-' + Math.floor(1000 + Math.random() * 9000);
-
-      registerModal.classList.remove('open');
-      regForm.reset();
-
-      showToast('Registration Confirmed! Pass ID: ' + passId + ' generated for ' + name + ' (' + ev + '). See you at NIST Sankalp 26-27!');
-    });
-  }
 
   function showToast(msg) {
     if (!toast || !toastMessage) return;

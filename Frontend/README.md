@@ -7,14 +7,14 @@ Official client frontend for **SANKALP 26-27**, the National Techno-Management S
 ## Current Architecture & Features
 
 ### Core Modules
-- **Video Preloader**: Fullscreen intro video (`Videos/reloader.mp4`) with cyber telemetry HUD, audio toggle, skip button, and fail-safe auto-unlock.
-- **Hero Arena**: Ambient video background framed by a golden ornamental mandala border and the official floating transparent Sankalp logo (`Sankalp_Final_Logo_Transparent.png`).
-- **Live Countdown**: Precision Days, Hours, Minutes, and Seconds countdown to the festival.
-- **Events View (`#/events`)**: Ambient background video (`Videos/bg.mp4`), real-time search, club filtering, and registration triggers.
+- **Video Preloader**: Fullscreen intro video (`Videos/reloader.mp4`) with cyber telemetry HUD, audio toggle, skip button, full natural playback, and enlarged official transparent Sankalp logo.
+- **Hero Arena**: Ambient video background framed by an ornamental golden border and the enlarged official floating transparent Sankalp logo (`Sankalp_Final_Logo_Transparent.png`) with golden halo.
+- **Live Countdown**: Precision Days, Hours, Minutes, and Seconds countdown calibrated to the official festival launch on **26th November 2026**.
+- **Institution Branding**: Features the official emblem and banner for **National Institute of Science and Technology** (NIST University).
+- **Events View (`#/events`)**: High-resolution 2560x1440 celestial theme background (`assets/images/home_theme_bg_hq.jpg`) with smooth 7s cosmic drift animation, floating aurora orbs, and interactive mouse-tracking ambient glow. Real-time search and club filtering.
 - **Clubs View (`#/club`)**: Directory of student clubs, descriptions, lead coordinators, and social links.
 - **Committees View (`#/team`)**: Tabbed organizing committee roster with contact cards.
 - **Gallery View (`#/gallery`)**: Festival moments with fullscreen lightbox modal.
-- **Registration Modal**: Dynamic pass generator creating personalized IDs (`NIST-SKP-XXXX`) and toast confirmations.
 
 ---
 
@@ -22,24 +22,43 @@ Official client frontend for **SANKALP 26-27**, the National Techno-Management S
 
 ```text
 Frontend/
-├── index.html                      # Main Single Page Application entry
-├── style.css                       # Cosmic stardust theme & responsive styling
-├── script.js                       # Router, video controller & data engine
+├── index.html                             # Main Single Page Application entry
+├── style.css                              # Cosmic stardust theme & responsive styling
+├── script.js                              # Router, RAF video loop engine & countdown controller
 ├── assets/
 │   └── images/
-│       ├── nist_logo.png           # NIST University crest
-│       ├── decorative_border.png   # Ornamental mandala border
-│       └── Sankalp_Final_Logo_Transparent.png # Official transparent logo
+│       ├── nist_logo.png                  # NIST University crest
+│       ├── decorative_border.png          # Ornamental mandala border
+│       ├── Sankalp_Final_Logo_Transparent.png # Official transparent logo
+│       ├── home_theme_bg_hq.jpg           # High-quality 2560x1440 celestial theme background
+│       ├── home_theme_mandala_hq.jpg      # High-quality 2560x1440 mandala artwork
+│       ├── ekatvam_theme_logo_circular.png # Official circular EKATVAM theme emblem
+│       ├── ekatvam_theme_logo.jpg         # Full EKATVAM theme seal
+│       ├── ekatvam_theme_banner.jpg       # Theme banner illustration
+│       ├── ekatvam_mandala_art.jpg        # Flowing mandala & unity artwork
+│       ├── ekatvam_cosmic_nebula.jpg      # Celestial stars nebula background
+│       └── ekatvam_dimensions_art.jpg     # Science, technology, art & humanity panorama
 ├── data/
-│   ├── events.json                 # Active events catalog
-│   ├── events_template.json        # Template schema for adding new events
-│   ├── clubs.json                  # Active clubs catalog
-│   ├── clubs_template.json         # Template schema for adding new clubs
-│   └── stars.json                  # Guest performers catalog
+│   ├── events.json                        # Active events catalog
+│   ├── events_template.json               # Template schema for adding new events
+│   ├── clubs.json                         # Active clubs catalog
+│   ├── clubs_template.json                # Template schema for adding new clubs
+│   └── stars.json                         # Guest performers catalog
 └── Videos/
-    ├── reloader.mp4                # Intro preloader video
-    ├── newpreloader.mp4            # Alternative preloader video
-    └── bg.mp4                      # Events background video
+    ├── reloader.mp4                       # Intro preloader video
+    ├── newpreloader.mp4                   # Alternative preloader video
+    └── bg.mp4                             # Events background video
+```
+├── data/
+│   ├── events.json                        # Active events catalog
+│   ├── events_template.json               # Template schema for adding new events
+│   ├── clubs.json                         # Active clubs catalog
+│   ├── clubs_template.json                # Template schema for adding new clubs
+│   └── stars.json                         # Guest performers catalog
+└── Videos/
+    ├── reloader.mp4                       # Intro preloader video
+    ├── newpreloader.mp4                   # Alternative preloader video
+    └── bg.mp4                             # Events background video
 ```
 
 ---

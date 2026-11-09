@@ -7,46 +7,7 @@ const CLUBS_DATA = [
   }
 ];
 
-const EVENTS_DATA = [
-  {
-    id: "rec-urja-kriti-2026",
-    eventName: "Urja-Kriti: Clean Energy & Green Tech Innovation Challenge",
-    clubName: "Renewable Energy Club (REC)",
-    clubLogo: "assets/images/rec_club_logo.png",
-    category: "Technical & Sustainability",
-    date: "2026-11-27T10:00:00.000Z",
-    time: "10:00 AM – 04:00 PM IST",
-    venue: "Galleria & Renewable Energy Lab, NIST University",
-    image: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=900&auto=format&fit=crop&q=80",
-    tag: "REC Flagship Challenge",
-    summary: "Design and present breakthrough prototypes or simulations in solar PV, wind turbines, EV powertrains, and smart microgrids.",
-    eventDescription: "Urja-Kriti is the premier national-level green technology symposium challenge organized by the Renewable Energy Club (REC) at Sankalp 26-27. Student innovators and engineering teams compete to solve real-world clean energy crises through working hardware prototypes, smart IoT telemetry, solar tracking, and electric mobility solutions. Evaluated by esteemed academicians and green-tech industry experts.",
-    domains: [
-      "Solar Photovoltaic & Concentrated Solar Systems",
-      "EV Charging, Smart Battery Storage & BMS",
-      "Micro Wind & Hybrid Renewable Energy Harvesting",
-      "Smart Home, Campus & IoT Energy Optimization"
-    ],
-    rules: [
-      "Team Size: 2 to 4 members per team (cross-college multidisciplinary teams welcome).",
-      "Round 1 (Abstract Submission): Detailed project report, problem statement, and schematic overview.",
-      "Round 2 (Live Demonstration): 10-minute live demonstration and prototype pitch before the jury panel.",
-      "Working hardware prototypes will receive bonus points over pure software simulations.",
-      "All submissions must be original student projects. Pre-assembled commercial kits will be disqualified."
-    ],
-    prizePool: "₹30,000 Total Cash Prizes",
-    prizes: [
-      { title: "Champion Team", amount: "₹15,000 + Winner Trophy + Certificate of Excellence" },
-      { title: "1st Runner-Up", amount: "₹10,000 + Silver Memento + Certificate" },
-      { title: "2nd Runner-Up", amount: "₹5,000 + Bronze Memento + Certificate" }
-    ],
-    coordinators: [
-      { name: "Suman Patra", role: "President, REC", contact: "+91 94392 10842" },
-      { name: "Rudra Sahu", role: "Event Lead, REC", contact: "+91 82490 61730" }
-    ],
-    registrationLink: "https://forms.google.com"
-  }
-];
+const EVENTS_DATA = [];
 const STARS_DATA = [];
 
 /* ==========================================================================
@@ -433,124 +394,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const eventModalClose = document.getElementById('event-modal-close');
   const eventModalBody = document.getElementById('event-modal-body');
 
-  function openEventModal(event) {
-    if (!event || !eventDetailsModal || !eventModalBody) return;
-
-    const dateStr = event.date ? new Date(event.date).toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : 'Fest Schedule';
-    const timeStr = event.time || '10:00 AM IST';
-    const venueStr = event.venue || 'NIST Campus';
-    const bannerUrl = event.image || 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=900&auto=format&fit=crop&q=80';
-    const logoUrl = event.clubLogo || 'assets/images/Sankalp_Final_Logo_Transparent.png';
-
-    const rulesHtml = Array.isArray(event.rules) && event.rules.length > 0 ? (
-      '<div class="event-modal-section">' +
-        '<h4 class="event-modal-section-title"><i class="fa-solid fa-list-check"></i> Competition Rules & Guidelines</h4>' +
-        '<ul class="event-modal-list">' +
-          event.rules.map(r => '<li><i class="fa-solid fa-circle-check"></i> <span>' + r + '</span></li>').join('') +
-        '</ul>' +
-      '</div>'
-    ) : '';
-
-    const domainsHtml = Array.isArray(event.domains) && event.domains.length > 0 ? (
-      '<div class="event-modal-section">' +
-        '<h4 class="event-modal-section-title"><i class="fa-solid fa-lightbulb"></i> Focus Problem Statements & Tracks</h4>' +
-        '<ul class="event-modal-list">' +
-          event.domains.map(d => '<li><i class="fa-solid fa-bolt"></i> <span>' + d + '</span></li>').join('') +
-        '</ul>' +
-      '</div>'
-    ) : '';
-
-    const prizesHtml = Array.isArray(event.prizes) && event.prizes.length > 0 ? (
-      '<div class="event-modal-section">' +
-        '<h4 class="event-modal-section-title"><i class="fa-solid fa-trophy"></i> Prize Pool & Recognition</h4>' +
-        '<div class="event-prizes-grid">' +
-          event.prizes.map((p, idx) => (
-            '<div class="event-prize-card ' + (idx === 0 ? 'gold-tier' : '') + '">' +
-              '<div class="event-prize-tier"><i class="fa-solid fa-award"></i> ' + p.title + '</div>' +
-              '<div class="event-prize-amount">' + p.amount + '</div>' +
-            '</div>'
-          )).join('') +
-        '</div>' +
-      '</div>'
-    ) : '';
-
-    const coordsHtml = Array.isArray(event.coordinators) && event.coordinators.length > 0 ? (
-      '<div class="event-modal-section">' +
-        '<h4 class="event-modal-section-title"><i class="fa-solid fa-headset"></i> Student & Faculty Coordinators</h4>' +
-        '<div class="event-coordinators-grid">' +
-          event.coordinators.map(c => (
-            '<div class="event-coord-card">' +
-              '<div>' +
-                '<div class="event-coord-name">' + c.name + '</div>' +
-                '<div class="event-coord-role">' + c.role + '</div>' +
-              '</div>' +
-              (c.contact ? '<a href="tel:' + c.contact + '" class="event-coord-phone"><i class="fa-solid fa-phone"></i> Call</a>' : '') +
-            '</div>'
-          )).join('') +
-        '</div>' +
-      '</div>'
-    ) : '';
+  function openEventModal() {
+    if (!eventDetailsModal || !eventModalBody) return;
+    const logoUrl = 'assets/images/rec_club_logo.png';
 
     eventModalBody.innerHTML = (
-      '<div class="event-modal-header">' +
-        '<div class="event-modal-badge-row">' +
-          '<span class="event-modal-badge badge-green"><i class="fa-solid fa-leaf"></i> ' + event.clubName + '</span>' +
-          '<span class="event-modal-badge badge-gold"><i class="fa-solid fa-trophy"></i> ' + (event.tag || 'Flagship Event') + '</span>' +
+      '<div class="event-modal-tba-stage text-center">' +
+        '<div class="tba-logo-halo">' +
+          '<img src="' + logoUrl + '" alt="REC Logo" class="tba-logo-img">' +
         '</div>' +
-        '<h2 class="event-modal-title gold-gradient-text" id="modal-event-title">' + event.eventName + '</h2>' +
-      '</div>' +
-
-      '<img src="' + bannerUrl + '" alt="' + event.eventName + '" class="event-modal-banner" onerror="this.src=\'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=900&auto=format&fit=crop\'">' +
-
-      '<div class="event-modal-club-spotlight">' +
-        '<img src="' + logoUrl + '" alt="' + event.clubName + '" class="event-modal-club-logo" onerror="this.src=\'assets/images/Sankalp_Final_Logo_Transparent.png\'">' +
-        '<div class="event-modal-club-info">' +
-          '<h4>Organized by ' + event.clubName + '</h4>' +
-          '<p>National Institute of Science and Technology (NIST University) • SANKALP 26-27</p>' +
+        '<div style="margin-bottom: 1.2rem;">' +
+          '<span class="empty-state-badge"><i class="fa-solid fa-clock"></i> Coming Soon</span>' +
         '</div>' +
-      '</div>' +
-
-      '<div class="event-modal-info-grid">' +
-        '<div class="event-modal-info-card">' +
-          '<i class="fa-regular fa-calendar-days"></i>' +
-          '<div>' +
-            '<h5>Date & Schedule</h5>' +
-            '<p>' + dateStr + '</p>' +
-            '<small style="color:var(--text-muted);">' + timeStr + '</small>' +
-          '</div>' +
-        '</div>' +
-        '<div class="event-modal-info-card">' +
-          '<i class="fa-solid fa-location-dot"></i>' +
-          '<div>' +
-            '<h5>Venue Location</h5>' +
-            '<p>' + venueStr + '</p>' +
-          '</div>' +
-        '</div>' +
-        '<div class="event-modal-info-card">' +
-          '<i class="fa-solid fa-award"></i>' +
-          '<div>' +
-            '<h5>Total Cash Prizes</h5>' +
-            '<p style="color:#fbbf24;">' + (event.prizePool || 'Merit Awards + Cash') + '</p>' +
-          '</div>' +
-        '</div>' +
-      '</div>' +
-
-      '<div class="event-modal-section">' +
-        '<h4 class="event-modal-section-title"><i class="fa-solid fa-circle-info"></i> Event Overview</h4>' +
-        '<p class="event-modal-desc">' + (event.eventDescription || event.summary || '') + '</p>' +
-      '</div>' +
-
-      domainsHtml +
-      rulesHtml +
-      prizesHtml +
-      coordsHtml +
-
-      '<div class="event-modal-actions-bar">' +
-        '<button class="btn btn-gold modal-register-trigger-btn">' +
-          '<span><i class="fa-solid fa-pen-nib"></i> Register For Event</span>' +
-        '</button>' +
-        '<button class="btn btn-outline modal-jump-events-btn">' +
-          '<i class="fa-solid fa-calendar-check"></i> View in Full Events Schedule' +
+        '<h2 class="gold-gradient-text tba-title">Event Details To Be Announced</h2>' +
+        '<p class="tba-subtitle">' +
+          'The official event guidelines, schedule, and competition details will be published soon. Stay tuned!' +
+        '</p>' +
+        '<button class="btn btn-gold btn-sm" id="event-modal-tba-close" style="padding: 0.65rem 2.2rem; font-size: 0.88rem;">' +
+          '<span>Close</span>' +
         '</button>' +
       '</div>'
     );
@@ -558,27 +419,9 @@ document.addEventListener('DOMContentLoaded', () => {
     eventDetailsModal.classList.add('open');
     document.body.style.overflow = 'hidden';
 
-    // Hook up buttons inside the modal
-    const registerTrigger = eventModalBody.querySelector('.modal-register-trigger-btn');
-    if (registerTrigger) {
-      registerTrigger.addEventListener('click', () => {
-        showToast('Registration for ' + event.eventName + ' confirmed! Details saved.');
-        closeEventModal();
-      });
-    }
-
-    const jumpEventsBtn = eventModalBody.querySelector('.modal-jump-events-btn');
-    if (jumpEventsBtn) {
-      jumpEventsBtn.addEventListener('click', () => {
-        closeEventModal();
-        window.location.hash = '#/events';
-        setTimeout(() => {
-          if (clubFilterSelect) {
-            clubFilterSelect.value = event.clubName;
-            filterEvents();
-          }
-        }, 120);
-      });
+    const tbaCloseBtn = eventModalBody.querySelector('#event-modal-tba-close');
+    if (tbaCloseBtn) {
+      tbaCloseBtn.addEventListener('click', closeEventModal);
     }
   }
 
@@ -629,18 +472,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     clubsContainer.innerHTML = (
       '<div class="rec-interactive-stage reveal-scale">' +
-        '<div class="rec-button-orb" id="rec-interactive-button" role="button" tabindex="0" aria-label="View Event Details" data-club-name="' + recClub.name + '">' +
-          '<div class="rec-ring-outer"></div>' +
-          '<div class="rec-ring-middle"></div>' +
-          '<div class="rec-ring-inner"></div>' +
-          '<div class="rec-specular-light" id="rec-specular-light"></div>' +
-          '<div class="rec-ambient-aura"></div>' +
-          '<div class="rec-logo-core" id="rec-logo-core">' +
-            '<img src="' + logoUrl + '" alt="REC Logo" class="rec-emblem-img" draggable="false">' +
-          '</div>' +
-          '<div class="rec-pulse-pill">' +
-            '<i class="fa-solid fa-bolt"></i>' +
-            '<span>Event Details</span>' +
+        '<div class="rec-float-anchor">' +
+          '<div class="rec-button-orb" id="rec-interactive-button" role="button" tabindex="0" aria-label="Renewable Energy Club - View Event Details" data-club-name="' + recClub.name + '">' +
+            '<div class="rec-ring-outer"></div>' +
+            '<div class="rec-ring-middle"></div>' +
+            '<div class="rec-ring-inner"></div>' +
+            '<div class="rec-specular-light" id="rec-specular-light"></div>' +
+            '<div class="rec-ambient-aura"></div>' +
+            '<div class="rec-logo-core" id="rec-logo-core">' +
+              '<img src="' + logoUrl + '" alt="REC Logo" class="rec-emblem-img" draggable="false">' +
+            '</div>' +
           '</div>' +
         '</div>' +
       '</div>'
@@ -700,10 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       recButton.addEventListener('click', () => {
-        const matchedEvent = (typeof EVENTS_DATA !== 'undefined' ? EVENTS_DATA : []).find(ev => ev.clubName === recClub.name);
-        if (matchedEvent) {
-          openEventModal(matchedEvent);
-        }
+        openEventModal();
       });
 
       recButton.addEventListener('keydown', (e) => {

@@ -1,62 +1,8 @@
 const CLUBS_DATA = [
   {
+    id: "rec-club",
     name: "Renewable Energy Club (REC)",
-    shortName: "REC",
-    description: "Pioneering sustainable engineering, clean energy research, solar photovoltaics, EV technology, and environmental innovation under NIST University.",
     logo: "assets/images/rec_club_logo.png",
-    president: {
-      name: "Suman Patra",
-      contact: "+91 94392 10842"
-    },
-    representative: {
-      name: "Rudra Sahu",
-      contact: "+91 82490 61730"
-    },
-    socials: {
-      website: "https://nist.edu",
-      instagram: "https://instagram.com/rec_nist",
-      linkedin: "https://linkedin.com/school/nist-berhampur"
-    },
-    eventCount: 1
-  },
-  {
-    name: "Club Excel",
-    shortName: "Excel",
-    description: "NIST's premier technical and software development society focusing on full-stack architecture, competitive programming, and AI hackathons.",
-    logo: "assets/images/Sankalp_Final_Logo_Transparent.png",
-    president: {
-      name: "Technical Lead",
-      contact: "+91 98765 43212"
-    },
-    representative: {
-      name: "Student Secretary",
-      contact: "+91 98765 43213"
-    },
-    socials: {
-      website: "https://nist.edu",
-      instagram: "https://instagram.com/clubexcel_nist",
-      linkedin: "https://linkedin.com/school/nist-berhampur"
-    },
-    eventCount: 1
-  },
-  {
-    name: "Robotics Club",
-    shortName: "Robotics",
-    description: "Fostering robotics design, autonomous rover builds, IoT automation, drone racing, and high-octane Robo-War combat at NIST University.",
-    logo: "assets/images/Sankalp_Final_Logo_Transparent.png",
-    president: {
-      name: "Robotics Lead",
-      contact: "+91 98765 43214"
-    },
-    representative: {
-      name: "Robotics Co-Lead",
-      contact: "+91 98765 43215"
-    },
-    socials: {
-      website: "https://nist.edu",
-      instagram: "https://instagram.com/robotics_nist",
-      linkedin: "https://linkedin.com/school/nist-berhampur"
-    },
     eventCount: 1
   }
 ];
@@ -97,74 +43,6 @@ const EVENTS_DATA = [
     coordinators: [
       { name: "Suman Patra", role: "President, REC", contact: "+91 94392 10842" },
       { name: "Rudra Sahu", role: "Event Lead, REC", contact: "+91 82490 61730" }
-    ],
-    registrationLink: "https://forms.google.com"
-  },
-  {
-    id: "code-kshethra-2026",
-    eventName: "Code-Kshethra: 24-Hour AI & Full-Stack Hackathon",
-    clubName: "Club Excel",
-    clubLogo: "assets/images/Sankalp_Final_Logo_Transparent.png",
-    category: "Coding & Software",
-    date: "2026-11-26T11:00:00.000Z",
-    time: "11:00 AM (24 Hours)",
-    venue: "Advanced Computing Center, NIST Campus",
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&auto=format&fit=crop&q=80",
-    tag: "Flagship Hackathon",
-    summary: "24-hour non-stop hackathon building production-grade AI applications, Web3 dApps, and scalable cloud systems.",
-    eventDescription: "Code-Kshethra is a fast-paced 24-hour sprint where software developers, UI/UX designers, and problem solvers collaborate to develop high-impact digital solutions for real industry challenges.",
-    domains: [
-      "Generative AI & Agentic Workflows",
-      "Fintech & Decentralized Ledger Tech",
-      "Healthcare & MedTech Solutions",
-      "Open Innovation Track"
-    ],
-    rules: [
-      "Team Size: 2 to 4 members.",
-      "All code must be written during the 24-hour hacking window.",
-      "Submissions require a public GitHub repository and live deployment URL."
-    ],
-    prizePool: "₹40,000 Total Cash Prizes",
-    prizes: [
-      { title: "1st Place (Overall Winner)", amount: "₹20,000 + Trophy" },
-      { title: "2nd Place", amount: "₹12,000" },
-      { title: "Best AI Track Innovation", amount: "₹8,000" }
-    ],
-    coordinators: [
-      { name: "Technical Lead", role: "President, Club Excel", contact: "+91 98765 43212" }
-    ],
-    registrationLink: "https://forms.google.com"
-  },
-  {
-    id: "robo-war-2026",
-    eventName: "Robo-Kshethra: Heavyweight Combat Robo-War",
-    clubName: "Robotics Club",
-    clubLogo: "assets/images/Sankalp_Final_Logo_Transparent.png",
-    category: "Robotics & Hardware",
-    date: "2026-11-28T14:00:00.000Z",
-    time: "02:00 PM – 07:00 PM IST",
-    venue: "Outdoor Robotics Steel Arena, NIST Campus",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=900&auto=format&fit=crop&q=80",
-    tag: "Combat Arena",
-    summary: "High-octane metal clashes, spinning blades, and pneumatic flippers inside the enclosed steel arena.",
-    eventDescription: "The most adrenaline-packed arena battle of Sankalp 26-27! Custom-built remote combat robots battle in 1-on-1 knockout duels within a reinforced hazard-filled combat arena.",
-    domains: [
-      "15kg & 30kg Weight Categories",
-      "Wired / Wireless RF Controlled Bots",
-      "Active Weapon Systems (Spinners, Flippers, Wedges)"
-    ],
-    rules: [
-      "Bots must pass stringent technical inspection and safety fail-safes.",
-      "3-minute rounds; judged on aggression, damage, and control."
-    ],
-    prizePool: "₹50,000 Total Cash Prizes",
-    prizes: [
-      { title: "Grand Champion", amount: "₹25,000 + Warrior Trophy" },
-      { title: "Runner-Up", amount: "₹15,000" },
-      { title: "Most Destructive Bot", amount: "₹10,000" }
-    ],
-    coordinators: [
-      { name: "Robotics Lead", role: "President, Robotics Club", contact: "+91 98765 43214" }
     ],
     registrationLink: "https://forms.google.com"
   }
@@ -725,7 +603,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 6. POPULATE CLUBS (#/club) (With Interactive Event Triggers)
+  // 6. POPULATE CLUBS (#/club) (Only REC Animated Logo Button with Mouse Effects)
   // ==========================================================================
   const clubsContainer = document.getElementById('nist-clubs-container');
   const clubFilterSelect = document.getElementById('event-club-filter');
@@ -739,61 +617,36 @@ document.addEventListener('DOMContentLoaded', () => {
         '<div class="empty-state-box reveal-scale">' +
           '<div class="empty-state-icon"><i class="fa-solid fa-users-gear"></i></div>' +
           '<h3 class="empty-state-title">Clubs To Be Announced</h3>' +
-          '<p class="empty-state-desc">The list of participating student clubs and chapters will be published soon. Stay tuned for updates!</p>' +
-          '<span class="empty-state-badge"><i class="fa-solid fa-clock"></i> Awaiting New Club Uploads</span>' +
+          '<p class="empty-state-desc">The list of participating student clubs will be published soon.</p>' +
         '</div>'
       );
       initScrollReveals(clubsContainer);
       return;
     }
 
-    clubsContainer.innerHTML = clubs.map((club, idx) => {
-      const logoUrl = club.logo || 'assets/images/Sankalp_Final_Logo_Transparent.png';
-      const webSocial = club.socials && club.socials.website ? '<a href="' + club.socials.website + '" target="_blank" class="club-social-btn" title="Website"><i class="fa-solid fa-globe"></i></a>' : '';
-      const instaSocial = club.socials && club.socials.instagram ? '<a href="' + club.socials.instagram + '" target="_blank" class="club-social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>' : '';
-      const linkedSocial = club.socials && club.socials.linkedin ? '<a href="' + club.socials.linkedin + '" target="_blank" class="club-social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>' : '';
+    const recClub = clubs[0];
+    const logoUrl = recClub.logo || 'assets/images/rec_club_logo.png';
 
-      const presName = (club.president && club.president.name) ? club.president.name : 'Lead Coordinator';
-      const presContact = (club.president && club.president.contact) ? '<a href="tel:' + club.president.contact + '" class="phone-link"><i class="fa-solid fa-phone"></i> ' + club.president.contact + '</a>' : '';
-
-      const repName = (club.representative && club.representative.name) ? club.representative.name : '';
-      const repContact = (club.representative && club.representative.contact) ? '<a href="tel:' + club.representative.contact + '" class="phone-link"><i class="fa-solid fa-phone"></i> ' + club.representative.contact + '</a>' : '';
-
-      const repHtml = repName ? (
-        '<div class="club-lead-entry">' +
-          '<span class="lead-role">Representative:</span>' +
-          '<span class="lead-name-phone">' + repName + ' ' + repContact + '</span>' +
-        '</div>'
-      ) : '';
-
-      const delayClass = 'delay-' + ((idx % 3) + 1);
-
-      return (
-        '<div class="club-card reveal-scale clickable-club-card ' + delayClass + '" data-club-name="' + club.name + '">' +
-          '<div class="club-event-chip"><i class="fa-solid fa-bolt"></i> ' + (club.eventCount || 1) + ' Flagship Event</div>' +
-          '<div class="club-header">' +
-            '<img src="' + logoUrl + '" alt="' + club.name + '" class="club-logo" onerror="this.src=\'assets/images/Sankalp_Final_Logo_Transparent.png\'">' +
-            '<div class="club-title-col">' +
-              '<h3 class="club-name">' + club.name + '</h3>' +
-              '<span class="club-click-hint"><i class="fa-solid fa-circle-info"></i> Click to view event details</span>' +
-            '</div>' +
+    clubsContainer.innerHTML = (
+      '<div class="rec-interactive-stage reveal-scale">' +
+        '<div class="rec-button-orb" id="rec-interactive-button" role="button" tabindex="0" aria-label="View Event Details" data-club-name="' + recClub.name + '">' +
+          '<div class="rec-ring-outer"></div>' +
+          '<div class="rec-ring-middle"></div>' +
+          '<div class="rec-ring-inner"></div>' +
+          '<div class="rec-specular-light" id="rec-specular-light"></div>' +
+          '<div class="rec-ambient-aura"></div>' +
+          '<div class="rec-logo-core" id="rec-logo-core">' +
+            '<img src="' + logoUrl + '" alt="REC Logo" class="rec-emblem-img" draggable="false">' +
           '</div>' +
-          '<p class="club-desc">' + (club.description || 'Student club under NIST University driving technical and cultural excellence.') + '</p>' +
-          '<div class="club-leads-box">' +
-            '<div class="club-lead-entry">' +
-              '<span class="lead-role">President:</span>' +
-              '<span class="lead-name-phone">' + presName + ' ' + presContact + '</span>' +
-            '</div>' +
-            repHtml +
+          '<div class="rec-pulse-pill">' +
+            '<i class="fa-solid fa-bolt"></i>' +
+            '<span>Event Details</span>' +
           '</div>' +
-          '<div class="club-footer-actions">' +
-            '<div class="club-socials">' + webSocial + instaSocial + linkedSocial + '</div>' +
-            '<button class="btn btn-gold btn-sm view-club-event-btn" data-club-name="' + club.name + '"><i class="fa-solid fa-calendar-day"></i> View Event Details</button>' +
-          '</div>' +
-        '</div>'
-      );
-    }).join('');
+        '</div>' +
+      '</div>'
+    );
 
+    clubsContainer.classList.add('single-club-view');
     initScrollReveals(clubsContainer);
 
     if (clubFilterSelect) {
@@ -806,28 +659,60 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Attach click listeners to cards and view buttons
-    clubsContainer.querySelectorAll('.clickable-club-card').forEach(card => {
-      card.addEventListener('click', (e) => {
-        // Prevent trigger if clicking on social buttons or phone links
-        if (e.target.closest('.club-social-btn') || e.target.closest('.phone-link')) {
-          return;
+    // Attach 3D tilt & mouse specular highlight interaction
+    const recButton = document.getElementById('rec-interactive-button');
+    const specularLight = document.getElementById('rec-specular-light');
+    const logoCore = document.getElementById('rec-logo-core');
+
+    if (recButton) {
+      recButton.addEventListener('mousemove', (e) => {
+        const rect = recButton.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -16;
+        const rotateY = ((x - centerX) / centerX) * 16;
+
+        recButton.style.transform = 'perspective(900px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg) scale3d(1.08, 1.08, 1.08)';
+
+        if (specularLight) {
+          specularLight.style.left = x + 'px';
+          specularLight.style.top = y + 'px';
+          specularLight.style.opacity = '1';
         }
-        const clubName = card.getAttribute('data-club-name');
-        const matchedEvent = (typeof EVENTS_DATA !== 'undefined' ? EVENTS_DATA : []).find(ev => ev.clubName === clubName);
-        if (matchedEvent) {
-          openEventModal(matchedEvent);
-        } else {
-          window.location.hash = '#/events';
-          setTimeout(() => {
-            if (clubFilterSelect) {
-              clubFilterSelect.value = clubName;
-              filterEvents();
-            }
-          }, 120);
+
+        if (logoCore) {
+          logoCore.style.transform = 'translateZ(35px) translate(' + ((x - centerX) * 0.08).toFixed(1) + 'px, ' + ((y - centerY) * 0.08).toFixed(1) + 'px)';
         }
       });
-    });
+
+      recButton.addEventListener('mouseenter', () => {
+        recButton.style.transition = 'transform 0.08s ease-out, box-shadow 0.25s ease';
+      });
+
+      recButton.addEventListener('mouseleave', () => {
+        recButton.style.transition = 'transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.55s ease';
+        recButton.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        if (specularLight) specularLight.style.opacity = '0';
+        if (logoCore) logoCore.style.transform = 'translateZ(0px) translate(0px, 0px)';
+      });
+
+      recButton.addEventListener('click', () => {
+        const matchedEvent = (typeof EVENTS_DATA !== 'undefined' ? EVENTS_DATA : []).find(ev => ev.clubName === recClub.name);
+        if (matchedEvent) {
+          openEventModal(matchedEvent);
+        }
+      });
+
+      recButton.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          recButton.click();
+        }
+      });
+    }
   }
   renderClubs();
 

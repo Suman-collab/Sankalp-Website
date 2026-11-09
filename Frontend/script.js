@@ -226,25 +226,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 3. EVENTS AMBIENT INTERACTIVITY (Interactive Cosmic Aura)
+  // 3. SUBPAGE AMBIENT INTERACTIVITY (Interactive Cosmic Aura for All Subpages)
   // ==========================================================================
-  const eventsView = document.getElementById('view-events');
-  const eventsGlow = document.getElementById('events-interactive-glow');
+  document.querySelectorAll('.events-page-view').forEach(view => {
+    const glow = view.querySelector('.events-interactive-glow');
+    if (!glow) return;
 
-  if (eventsView && eventsGlow) {
-    eventsView.addEventListener('mousemove', (e) => {
-      const rect = eventsView.getBoundingClientRect();
+    view.addEventListener('mousemove', (e) => {
+      const rect = view.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      eventsGlow.style.left = x + 'px';
-      eventsGlow.style.top = y + 'px';
-      eventsGlow.style.opacity = '1';
+      glow.style.left = x + 'px';
+      glow.style.top = y + 'px';
+      glow.style.opacity = '1';
     });
 
-    eventsView.addEventListener('mouseleave', () => {
-      eventsGlow.style.opacity = '0';
+    view.addEventListener('mouseleave', () => {
+      glow.style.opacity = '0';
     });
-  }
+  });
 
   window.addEventListener('hashchange', handleRoute);
   handleRoute();

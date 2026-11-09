@@ -1656,6 +1656,52 @@ body.is-loading {
   z-index: 2;
 }
 
+.events-title-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.9rem;
+}
+
+.title-sankalp {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: 3px;
+  line-height: 1.15;
+  text-shadow: 0 0 35px rgba(245, 158, 11, 0.3);
+}
+
+.title-events {
+  font-family: 'Space Grotesk', var(--font-main);
+  font-size: clamp(1.2rem, 3.2vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #ffffff;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.title-events::before,
+.title-events::after {
+  content: '';
+  display: inline-block;
+  width: 35px;
+  height: 2px;
+}
+
+.title-events::before {
+  background: linear-gradient(90deg, transparent, #f59e0b);
+}
+
+.title-events::after {
+  background: linear-gradient(90deg, #f59e0b, transparent);
+}
+
 .events-toolbar {
   display: flex;
   gap: 1.5rem;
@@ -1740,6 +1786,8 @@ body.is-loading {
 
 .nist-event-card {
   background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   overflow: hidden;
@@ -1860,6 +1908,8 @@ body.is-loading {
 
 .club-card {
   background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   padding: 2rem;
@@ -2022,6 +2072,8 @@ body.is-loading {
 
 .team-member-card {
   background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   padding: 2.5rem 1.5rem;

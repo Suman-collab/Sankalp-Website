@@ -7,11 +7,11 @@ Official client frontend for **SANKALP 26-27**, the National Techno-Management S
 ## Current Architecture & Features
 
 ### Core Modules
-- **Video Preloader**: Fullscreen intro video (`Videos/reloader.mp4`) with cyber telemetry HUD, audio toggle, skip button, full natural playback, and enlarged official transparent Sankalp logo.
-- **Hero Arena**: Ambient video background framed by an ornamental golden border and the enlarged official floating transparent Sankalp logo (`Sankalp_Final_Logo_Transparent.png`) with golden halo.
+- **Video Preloader**: Fullscreen intro video (`Videos/reloader.mp4`) with cyber telemetry HUD, audio toggle, skip button, full natural playback, and fail-safe auto-unlock.
+- **Hero Arena**: Ambient video background with high-quality celestial theme backdrop (`assets/images/home_theme_bg_hq.jpg`), framed by an ornamental golden border and the official floating transparent Sankalp logo (`Sankalp_Final_Logo_Transparent.png`).
 - **Live Countdown**: Precision Days, Hours, Minutes, and Seconds countdown calibrated to the official festival launch on **26th November 2026**.
 - **Institution Branding**: Features the official emblem and banner for **National Institute of Science and Technology** (NIST University).
-- **Events View (`#/events`)**: High-resolution 2560x1440 celestial theme background (`assets/images/home_theme_bg_hq.jpg`) with smooth 7s cosmic drift animation, floating aurora orbs, and interactive mouse-tracking ambient glow. Real-time search and club filtering.
+- **Events View (`#/events`)**: Dual-stream continuous background video loop with cyber holographic grid, sweeping laser scanner, floating aurora lights, and interactive mouse-tracking glow. Real-time search and club filtering.
 - **Clubs View (`#/club`)**: Directory of student clubs, descriptions, lead coordinators, and social links.
 - **Committees View (`#/team`)**: Tabbed organizing committee roster with contact cards.
 - **Gallery View (`#/gallery`)**: Festival moments with fullscreen lightbox modal.

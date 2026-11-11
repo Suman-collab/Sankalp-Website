@@ -34,6 +34,15 @@
        1. PRELOADER // RELOADER VIDEO EXPERIENCE
        ============================================== -->
   <div id="preloader" class="preloader-overlay">
+    <!-- Dynamic Cosmic Theme Background -->
+    <div class="events-theme-bg-wrap">
+      <img src="assets/images/home_theme_bg_hq.jpg" alt="Theme Cosmic Background" class="events-theme-bg-img" loading="eager">
+      <div class="events-aurora-lights">
+        <div class="aurora-orb orb-gold"></div>
+        <div class="aurora-orb orb-indigo"></div>
+      </div>
+      <div class="events-theme-overlay"></div>
+    </div>
     <div class="video-container">
       <video id="reloader-video" playsinline muted preload="auto" autoplay>
         <source src="Videos/Preloader.mp4" type="video/mp4">
@@ -160,14 +169,15 @@
       
       <!-- HERO SECTION: Background Video + Decorative Border + Sankalp Logo -->
       <section class="hero-section" id="home">
-        <!-- Hero Background Video & Cosmic Aura -->
-        <div class="hero-video-wrap">
-          <video class="hero-bg-video" autoplay loop muted playsinline preload="auto" poster="assets/images/home_theme_bg_hq.jpg">
-            <source src="Videos/Preloader.mp4" type="video/mp4">
-            <source src="Videos/reloader.mp4" type="video/mp4">
-            <source src="Videos/newpreloader.mp4" type="video/mp4">
-          </video>
-          <div class="hero-dark-overlay"></div>
+        <!-- Dynamic Cosmic Theme Background (Used across all pages) -->
+        <div class="events-theme-bg-wrap">
+          <img src="assets/images/home_theme_bg_hq.jpg" alt="Theme Cosmic Background" class="events-theme-bg-img" loading="eager">
+          <div class="events-aurora-lights">
+            <div class="aurora-orb orb-gold"></div>
+            <div class="aurora-orb orb-indigo"></div>
+          </div>
+          <div class="events-interactive-glow"></div>
+          <div class="events-theme-overlay"></div>
         </div>
 
         <!-- Decorative Golden Border Overlay -->
@@ -180,15 +190,6 @@
           <div class="hero-glow-halo"></div>
           <img src="assets/images/Sankalp_Final_Logo_Transparent.png" alt="Sankalp Logo" class="hero-center-logo">
         </div>
-
-        <!-- Scroll Indicator -->
-        <a href="#countdown" class="hero-scroll-indicator" aria-label="Scroll to festival countdown">
-          <span class="scroll-mouse">
-            <span class="scroll-wheel"></span>
-          </span>
-          <span class="scroll-label">EXPLORE FESTIVAL</span>
-          <i class="fa-solid fa-chevron-down scroll-arrow"></i>
-        </a>
       </section>
 
       <!-- SECTION 2: SANKALP 2K26 & HOLOGRAM COUNTDOWN -->
@@ -252,15 +253,6 @@
                 <span class="count-tag">SECONDS</span>
               </div>
             </div>
-          </div>
-
-          <div class="hero-cta-row reveal-on-scroll delay-4">
-            <a href="#/events" class="btn btn-gold">
-              <i class="fa-solid fa-sparkles"></i> Explore Events
-            </a>
-            <a href="#/club" class="btn btn-outline">
-              <i class="fa-solid fa-users"></i> Explore Clubs
-            </a>
           </div>
         </div>
       </section>
@@ -397,48 +389,100 @@
             <p class="section-subtitle">Dive into endless possibilities across art, technology, esports, and management.</p>
           </div>
 
-          <div class="explore-cards-grid">
-            <div class="explore-card reveal-scale delay-1">
-              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&fit=crop');"></div>
-              <div class="explore-gradient orange-grad"></div>
-              <div class="explore-card-content">
-                <span class="explore-badge">STAGE</span>
-                <h3>CULTURAL</h3>
-                <p>Dance, Music, Theatrics &amp; Creative Arts</p>
-                <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
-              </div>
-            </div>
+          <div class="explore-marquee-wrapper">
+            <div class="explore-marquee-track">
+              <!-- Group 1: Interest Tracks -->
+              <div class="explore-marquee-group">
+                <div class="explore-card">
+                  <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&fit=crop');"></div>
+                  <div class="explore-gradient orange-grad"></div>
+                  <div class="explore-card-content">
+                    <span class="explore-badge">STAGE</span>
+                    <h3>CULTURAL</h3>
+                    <p>Dance, Music, Theatrics &amp; Creative Arts</p>
+                    <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                </div>
 
-            <div class="explore-card reveal-scale delay-2">
-              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&fit=crop');"></div>
-              <div class="explore-gradient red-grad"></div>
-              <div class="explore-card-content">
-                <span class="explore-badge">CONFERENCES</span>
-                <h3>EVENTS</h3>
-                <p>Workshops, Keynotes &amp; Paper Presentations</p>
-                <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
-              </div>
-            </div>
+                <div class="explore-card">
+                  <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&fit=crop');"></div>
+                  <div class="explore-gradient red-grad"></div>
+                  <div class="explore-card-content">
+                    <span class="explore-badge">CONFERENCES</span>
+                    <h3>EVENTS</h3>
+                    <p>Workshops, Keynotes &amp; Paper Presentations</p>
+                    <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                </div>
 
-            <div class="explore-card reveal-scale delay-3">
-              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&fit=crop');"></div>
-              <div class="explore-gradient purple-grad"></div>
-              <div class="explore-card-content">
-                <span class="explore-badge">ARENA</span>
-                <h3>GAMES</h3>
-                <p>LAN Esports, Tactical Shooters &amp; Sports Tournaments</p>
-                <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
-              </div>
-            </div>
+                <div class="explore-card">
+                  <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&fit=crop');"></div>
+                  <div class="explore-gradient purple-grad"></div>
+                  <div class="explore-card-content">
+                    <span class="explore-badge">ARENA</span>
+                    <h3>GAMES</h3>
+                    <p>LAN Esports, Tactical Shooters &amp; Sports Tournaments</p>
+                    <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                </div>
 
-            <div class="explore-card reveal-scale delay-4">
-              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&fit=crop');"></div>
-              <div class="explore-gradient cyan-grad"></div>
-              <div class="explore-card-content">
-                <span class="explore-badge">CODE &amp; CIRCUITS</span>
-                <h3>TECHNICAL</h3>
-                <p>Hackathons, RoboWars, Cloud &amp; Web Design</p>
-                <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="explore-card">
+                  <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&fit=crop');"></div>
+                  <div class="explore-gradient cyan-grad"></div>
+                  <div class="explore-card-content">
+                    <span class="explore-badge">CODE &amp; CIRCUITS</span>
+                    <h3>TECHNICAL</h3>
+                    <p>Hackathons, RoboWars, Cloud &amp; Web Design</p>
+                    <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Group 2: Seamless Infinite Duplicate -->
+              <div class="explore-marquee-group" aria-hidden="true">
+                <div class="explore-card">
+                  <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&fit=crop');"></div>
+                  <div class="explore-gradient orange-grad"></div>
+                  <div class="explore-card-content">
+                    <span class="explore-badge">STAGE</span>
+                    <h3>CULTURAL</h3>
+                    <p>Dance, Music, Theatrics &amp; Creative Arts</p>
+                    <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                </div>
+
+                <div class="explore-card">
+                  <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&fit=crop');"></div>
+                  <div class="explore-gradient red-grad"></div>
+                  <div class="explore-card-content">
+                    <span class="explore-badge">CONFERENCES</span>
+                    <h3>EVENTS</h3>
+                    <p>Workshops, Keynotes &amp; Paper Presentations</p>
+                    <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                </div>
+
+                <div class="explore-card">
+                  <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&fit=crop');"></div>
+                  <div class="explore-gradient purple-grad"></div>
+                  <div class="explore-card-content">
+                    <span class="explore-badge">ARENA</span>
+                    <h3>GAMES</h3>
+                    <p>LAN Esports, Tactical Shooters &amp; Sports Tournaments</p>
+                    <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                </div>
+
+                <div class="explore-card">
+                  <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&fit=crop');"></div>
+                  <div class="explore-gradient cyan-grad"></div>
+                  <div class="explore-card-content">
+                    <span class="explore-badge">CODE &amp; CIRCUITS</span>
+                    <h3>TECHNICAL</h3>
+                    <p>Hackathons, RoboWars, Cloud &amp; Web Design</p>
+                    <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -514,15 +558,6 @@
               referrerpolicy="no-referrer-when-downgrade"
               title="NIST University Campus Map">
             </iframe>
-          </div>
-
-          <div class="text-center reveal-on-scroll delay-2" style="margin-top: 1.8rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-            <a href="https://maps.google.com/?q=NIST+University+Berhampur+Odisha" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.8rem 1.8rem; border-radius:30px; font-weight:600; text-decoration:none;">
-              <i class="fa-solid fa-location-dot"></i> Open in Google Maps
-            </a>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=NIST+University+Berhampur" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.8rem 1.8rem; border-radius:30px; border:1px solid var(--gold-primary); color:#fff; text-decoration:none; font-weight:600; background:rgba(245,158,11,0.1);">
-              <i class="fa-solid fa-diamond-turn-right" style="color:var(--gold-primary);"></i> Get Directions
-            </a>
           </div>
         </div>
       </section>
@@ -719,13 +754,13 @@
           <div class="footer-contact-links">
             <a href="mailto:sankalp@nist.edu" class="contact-link"><i class="fa-solid fa-envelope"></i> sankalp@nist.edu</a>
             <a href="https://instagram.com/sankalpnist" target="_blank" rel="noopener noreferrer" class="contact-link"><i class="fa-brands fa-instagram"></i> @sankalpnist</a>
-            <a href="https://nist.edu" target="_blank" rel="noopener noreferrer" class="contact-link"><i class="fa-solid fa-globe"></i> nist.edu</a>
+            <a href="https://nist.edu/sankalp" target="_blank" rel="noopener noreferrer" class="contact-link"><i class="fa-solid fa-globe"></i> nist.edu/sankalp</a>
           </div>
           <div class="footer-social-icons">
             <a href="https://instagram.com/sankalpnist" target="_blank" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://youtube.com/@nistuniversity" target="_blank" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
             <a href="https://facebook.com/NISTBerhampur" target="_blank" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://linkedin.com/school/nist-berhampur" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.linkedin.com/school/nistuniversity" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
           </div>
         </div>
       </div>

@@ -1837,58 +1837,98 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 4. LIVE COUNTDOWN TIMER (Target: 26th November 2026)
+  // 4. LIVE 3D ROLLING BOX COUNTDOWN TIMER (Target: 26th November 2026)
   // ==========================================================================
   const festDate = new Date('2026-11-26T09:00:00+05:30');
-  let prevTime = { d: null, h: null, m: null, s: null };
 
-  function triggerBoxTick(boxId) {
-    const boxEl = document.getElementById(boxId);
-    if (!boxEl) return;
-    boxEl.classList.remove('box-ticking');
-    // Force DOM reflow to immediately replay animation
-    void boxEl.offsetWidth;
-    boxEl.classList.add('box-ticking');
-  }
+  class RollingCubeUnit {
+    constructor(cubeId, initialVal = '00') {
+      this.el = document.getElementById(cubeId);
+      if (!this.el) return;
 
-  function updateCountdown() {
-    const diff = festDate.getTime() - new Date().getTime();
-    if (diff > 0) {
-      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const s = Math.floor((diff % (1000 * 60)) / 1000);
+      this.faces = [
+        this.el.querySelector('.face-front .cube-num'),
+        this.el.querySelector('.face-top .cube-num'),
+        this.el.querySelector('.face-back .cube-num'),
+        this.el.querySelector('.face-bottom .cube-num')
+      ];
 
-      const dEl = document.getElementById('timer-days');
-      const hEl = document.getElementById('timer-hours');
-      const mEl = document.getElementById('timer-minutes');
-      const sEl = document.getElementById('timer-seconds');
+      this.currentVal = initialVal;
+      this.rollCount = 0;
+      this.currentAngle = 0;
 
-      if (dEl && prevTime.d !== d) {
-        dEl.textContent = String(d).padStart(2, '0');
-        if (prevTime.d !== null) triggerBoxTick('box-days');
-      }
-      if (hEl && prevTime.h !== h) {
-        hEl.textContent = String(h).padStart(2, '0');
-        if (prevTime.h !== null) triggerBoxTick('box-hours');
-      }
-      if (mEl && prevTime.m !== m) {
-        mEl.textContent = String(m).padStart(2, '0');
-        if (prevTime.m !== null) triggerBoxTick('box-minutes');
-      }
-      if (sEl && prevTime.s !== s) {
-        sEl.textContent = String(s).padStart(2, '0');
-        if (prevTime.s !== null) triggerBoxTick('box-seconds');
+      // Populate initial values on all 4 perimeter faces
+      this.faces.forEach(face => {
+        if (face) face.textContent = initialVal;
+      });
+    }
+
+    update(newVal) {
+      if (!this.el || newVal === this.currentVal) return;
+
+      this.currentVal = newVal;
+      this.rollCount++;
+
+      // Next face in cycle that rotates into view: 1 (top), 2 (back), 3 (bottom), 0 (front)
+      const nextFaceIndex = this.rollCount % 4;
+      const targetFace = this.faces[nextFaceIndex];
+      if (targetFace) {
+        targetFace.textContent = newVal;
       }
 
-      prevTime = { d, h, m, s };
+      // Decrement rotation by 90deg to roll forward/down
+      this.currentAngle -= 90;
+      this.el.style.transform = `rotateX(${this.currentAngle}deg)`;
     }
   }
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
 
-  // Expose programmatic trigger for verification testing (no mouse interaction on timer)
-  window.triggerTimerBoxRoll = triggerBoxTick;
+  function getCountdownValues() {
+    const diff = festDate.getTime() - Date.now();
+    if (diff <= 0) {
+      return { d: '00', h: '00', m: '00', s: '00', expired: true };
+    }
+    const d = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+    const h = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+    const m = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+    const s = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+    return { d, h, m, s, expired: false };
+  }
+
+  const initialVals = getCountdownValues();
+  const cubeDays = new RollingCubeUnit('cube-days', initialVals.d);
+  const cubeHours = new RollingCubeUnit('cube-hours', initialVals.h);
+  const cubeMinutes = new RollingCubeUnit('cube-minutes', initialVals.m);
+  const cubeSeconds = new RollingCubeUnit('cube-seconds', initialVals.s);
+
+  // Expose cubes for testing/verification
+  window.cubeDays = cubeDays;
+  window.cubeHours = cubeHours;
+  window.cubeMinutes = cubeMinutes;
+  window.cubeSeconds = cubeSeconds;
+
+  let countdownInterval = null;
+
+  function tickCountdown() {
+    const vals = getCountdownValues();
+    if (vals.expired) {
+      if (cubeDays) cubeDays.update('00');
+      if (cubeHours) cubeHours.update('00');
+      if (cubeMinutes) cubeMinutes.update('00');
+      if (cubeSeconds) cubeSeconds.update('00');
+
+      const badge = document.querySelector('.fest-edition-badge span:last-child');
+      if (badge) badge.textContent = 'SANKALP IS NOW LIVE!';
+      if (countdownInterval) clearInterval(countdownInterval);
+      return;
+    }
+
+    if (cubeDays) cubeDays.update(vals.d);
+    if (cubeHours) cubeHours.update(vals.h);
+    if (cubeMinutes) cubeMinutes.update(vals.m);
+    if (cubeSeconds) cubeSeconds.update(vals.s);
+  }
+
+  countdownInterval = setInterval(tickCountdown, 1000);
 
   // Theme logo upload handler: if image src is set in the future, display it and hide placeholder
   const themeLoadedLogo = document.getElementById('theme-loaded-logo');
@@ -1899,6 +1939,45 @@ document.addEventListener('DOMContentLoaded', () => {
       themeLoadedLogo.style.display = 'block';
       themePlaceholder.style.display = 'none';
     }
+  }
+
+  // ==========================================================================
+  // EXPLORE TRACKS - INFINITE CAROUSEL PAUSE & ROTATE INTERACTION
+  // ==========================================================================
+  const marqueeTrack = document.getElementById('explore-marquee-track');
+  const marqueeGroups = document.querySelectorAll('.explore-marquee-group');
+  const exploreCards = document.querySelectorAll('.explore-card');
+
+  if (exploreCards.length > 0) {
+    function setMarqueeState(state) {
+      if (marqueeTrack) marqueeTrack.style.animationPlayState = state;
+      marqueeGroups.forEach(g => { g.style.animationPlayState = state; });
+    }
+
+    exploreCards.forEach(card => {
+      // Pause track when hovering on any card
+      card.addEventListener('mouseenter', () => {
+        setMarqueeState('paused');
+      });
+
+      card.addEventListener('mouseleave', () => {
+        setMarqueeState('running');
+      });
+
+      // Tap support for mobile devices
+      card.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          const isCurrentActive = card.classList.contains('mobile-active');
+          exploreCards.forEach(c => c.classList.remove('mobile-active'));
+          if (!isCurrentActive) {
+            card.classList.add('mobile-active');
+            setMarqueeState('paused');
+          } else {
+            setMarqueeState('running');
+          }
+        }
+      });
+    });
   }
 
 

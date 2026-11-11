@@ -237,50 +237,78 @@
             <span>COUNTDOWN TO THE GRAND SPECTACLE</span>
           </div>
 
-          <!-- Hologram Glass Countdown Panel with 3D Split-Box Effect -->
+          <!-- Hologram Glass Countdown Panel with 3D Rolling Boxes -->
           <div class="hologram-countdown-panel reveal-scale delay-3">
-            <div class="hologram-grid">
-              <div class="countdown-box" id="box-days" data-unit="days">
-                <div class="box-notch top-left"></div>
-                <div class="box-notch top-right"></div>
-                <div class="box-notch bottom-left"></div>
-                <div class="box-notch bottom-right"></div>
-                <div class="box-split-line"></div>
-                <div class="box-digit-wrap">
-                  <span class="count-digit" id="timer-days">17</span>
+            <div class="countdown-3d-stage">
+              <!-- Days Unit -->
+              <div class="countdown-unit-wrap" id="wrap-days">
+                <div class="cube-stage">
+                  <div class="cube-box" id="cube-days">
+                    <div class="cube-face face-front"><span class="cube-num">00</span></div>
+                    <div class="cube-face face-top"><span class="cube-num">00</span></div>
+                    <div class="cube-face face-back"><span class="cube-num">00</span></div>
+                    <div class="cube-face face-bottom"><span class="cube-num">00</span></div>
+                    <div class="cube-face face-left"></div>
+                    <div class="cube-face face-right"></div>
+                  </div>
+                  <div class="cube-ground-shadow"></div>
                 </div>
                 <span class="count-tag">DAYS</span>
               </div>
-              <div class="countdown-box" id="box-hours" data-unit="hours">
-                <div class="box-notch top-left"></div>
-                <div class="box-notch top-right"></div>
-                <div class="box-notch bottom-left"></div>
-                <div class="box-notch bottom-right"></div>
-                <div class="box-split-line"></div>
-                <div class="box-digit-wrap">
-                  <span class="count-digit" id="timer-hours">09</span>
+
+              <!-- Separator -->
+              <div class="countdown-separator">:</div>
+
+              <!-- Hours Unit -->
+              <div class="countdown-unit-wrap" id="wrap-hours">
+                <div class="cube-stage">
+                  <div class="cube-box" id="cube-hours">
+                    <div class="cube-face face-front"><span class="cube-num">00</span></div>
+                    <div class="cube-face face-top"><span class="cube-num">00</span></div>
+                    <div class="cube-face face-back"><span class="cube-num">00</span></div>
+                    <div class="cube-face face-bottom"><span class="cube-num">00</span></div>
+                    <div class="cube-face face-left"></div>
+                    <div class="cube-face face-right"></div>
+                  </div>
+                  <div class="cube-ground-shadow"></div>
                 </div>
                 <span class="count-tag">HOURS</span>
               </div>
-              <div class="countdown-box" id="box-minutes" data-unit="minutes">
-                <div class="box-notch top-left"></div>
-                <div class="box-notch top-right"></div>
-                <div class="box-notch bottom-left"></div>
-                <div class="box-notch bottom-right"></div>
-                <div class="box-split-line"></div>
-                <div class="box-digit-wrap">
-                  <span class="count-digit" id="timer-minutes">45</span>
+
+              <!-- Separator -->
+              <div class="countdown-separator">:</div>
+
+              <!-- Minutes Unit -->
+              <div class="countdown-unit-wrap" id="wrap-minutes">
+                <div class="cube-stage">
+                  <div class="cube-box" id="cube-minutes">
+                    <div class="cube-face face-front"><span class="cube-num">00</span></div>
+                    <div class="cube-face face-top"><span class="cube-num">00</span></div>
+                    <div class="cube-face face-back"><span class="cube-num">00</span></div>
+                    <div class="cube-face face-bottom"><span class="cube-num">00</span></div>
+                    <div class="cube-face face-left"></div>
+                    <div class="cube-face face-right"></div>
+                  </div>
+                  <div class="cube-ground-shadow"></div>
                 </div>
                 <span class="count-tag">MINUTES</span>
               </div>
-              <div class="countdown-box" id="box-seconds" data-unit="seconds">
-                <div class="box-notch top-left"></div>
-                <div class="box-notch top-right"></div>
-                <div class="box-notch bottom-left"></div>
-                <div class="box-notch bottom-right"></div>
-                <div class="box-split-line"></div>
-                <div class="box-digit-wrap">
-                  <span class="count-digit" id="timer-seconds">30</span>
+
+              <!-- Separator -->
+              <div class="countdown-separator">:</div>
+
+              <!-- Seconds Unit -->
+              <div class="countdown-unit-wrap" id="wrap-seconds">
+                <div class="cube-stage">
+                  <div class="cube-box" id="cube-seconds">
+                    <div class="cube-face face-front"><span class="cube-num">00</span></div>
+                    <div class="cube-face face-top"><span class="cube-num">00</span></div>
+                    <div class="cube-face face-back"><span class="cube-num">00</span></div>
+                    <div class="cube-face face-bottom"><span class="cube-num">00</span></div>
+                    <div class="cube-face face-left"></div>
+                    <div class="cube-face face-right"></div>
+                  </div>
+                  <div class="cube-ground-shadow"></div>
                 </div>
                 <span class="count-tag">SECONDS</span>
               </div>
@@ -420,102 +448,375 @@
             <h2 class="gold-gradient-text" style="font-size: clamp(2rem, 4vw, 3rem); font-weight:800;">Explore Your Interests</h2>
             <p class="section-subtitle">Dive into endless possibilities across art, technology, esports, and management.</p>
           </div>
+        </div>
 
-          <div class="explore-marquee-wrapper">
-            <div class="explore-marquee-track">
-              <!-- Group 1: Interest Tracks -->
-              <div class="explore-marquee-group">
-                <div class="explore-card">
-                  <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&fit=crop');"></div>
-                  <div class="explore-gradient orange-grad"></div>
-                  <div class="explore-card-content">
-                    <span class="explore-badge">STAGE</span>
-                    <h3>CULTURAL</h3>
-                    <p>Dance, Music, Theatrics &amp; Creative Arts</p>
-                    <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
-                  </div>
+        <!-- Infinite Moving Carousel Marquee -->
+        <div class="explore-marquee-wrap">
+          <div class="explore-marquee-track" id="explore-marquee-track">
+            <!-- Group 1 (12 Cards - Continuous Cycle) -->
+            <div class="explore-marquee-group">
+            <div class="explore-card track-orange" data-track="cultural">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=700&fit=crop');"></div>
+              <div class="explore-gradient orange-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">STAGE</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">CULTURAL</h3>
                 </div>
-
-                <div class="explore-card">
-                  <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&fit=crop');"></div>
-                  <div class="explore-gradient red-grad"></div>
-                  <div class="explore-card-content">
-                    <span class="explore-badge">CONFERENCES</span>
-                    <h3>EVENTS</h3>
-                    <p>Workshops, Keynotes &amp; Paper Presentations</p>
-                    <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
-                  </div>
-                </div>
-
-                <div class="explore-card">
-                  <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&fit=crop');"></div>
-                  <div class="explore-gradient purple-grad"></div>
-                  <div class="explore-card-content">
-                    <span class="explore-badge">ARENA</span>
-                    <h3>GAMES</h3>
-                    <p>LAN Esports, Tactical Shooters &amp; Sports Tournaments</p>
-                    <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
-                  </div>
-                </div>
-
-                <div class="explore-card">
-                  <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&fit=crop');"></div>
-                  <div class="explore-gradient cyan-grad"></div>
-                  <div class="explore-card-content">
-                    <span class="explore-badge">CODE &amp; CIRCUITS</span>
-                    <h3>TECHNICAL</h3>
-                    <p>Hackathons, RoboWars, Cloud &amp; Web Design</p>
-                    <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
-                  </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Dance, Music, Theatrics &amp; Creative Arts</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
               </div>
+            </div>
 
-              <!-- Group 2: Seamless Infinite Duplicate -->
-              <div class="explore-marquee-group" aria-hidden="true">
-                <div class="explore-card">
-                  <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&fit=crop');"></div>
-                  <div class="explore-gradient orange-grad"></div>
-                  <div class="explore-card-content">
-                    <span class="explore-badge">STAGE</span>
-                    <h3>CULTURAL</h3>
-                    <p>Dance, Music, Theatrics &amp; Creative Arts</p>
-                    <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
-                  </div>
+            <div class="explore-card track-red" data-track="events">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&fit=crop');"></div>
+              <div class="explore-gradient red-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">CONFERENCES</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">EVENTS</h3>
                 </div>
-
-                <div class="explore-card">
-                  <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&fit=crop');"></div>
-                  <div class="explore-gradient red-grad"></div>
-                  <div class="explore-card-content">
-                    <span class="explore-badge">CONFERENCES</span>
-                    <h3>EVENTS</h3>
-                    <p>Workshops, Keynotes &amp; Paper Presentations</p>
-                    <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
-                  </div>
-                </div>
-
-                <div class="explore-card">
-                  <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&fit=crop');"></div>
-                  <div class="explore-gradient purple-grad"></div>
-                  <div class="explore-card-content">
-                    <span class="explore-badge">ARENA</span>
-                    <h3>GAMES</h3>
-                    <p>LAN Esports, Tactical Shooters &amp; Sports Tournaments</p>
-                    <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
-                  </div>
-                </div>
-
-                <div class="explore-card">
-                  <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&fit=crop');"></div>
-                  <div class="explore-gradient cyan-grad"></div>
-                  <div class="explore-card-content">
-                    <span class="explore-badge">CODE &amp; CIRCUITS</span>
-                    <h3>TECHNICAL</h3>
-                    <p>Hackathons, RoboWars, Cloud &amp; Web Design</p>
-                    <a href="#/events" class="explore-link">Explore Track <i class="fa-solid fa-arrow-right"></i></a>
-                  </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Workshops, Keynotes &amp; Paper Presentations</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
               </div>
+            </div>
+
+            <div class="explore-card track-purple" data-track="games">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=700&fit=crop');"></div>
+              <div class="explore-gradient purple-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">ARENA</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">GAMES</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">LAN Esports, Tactical Shooters &amp; Tournaments</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-cyan" data-track="technical">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=700&fit=crop');"></div>
+              <div class="explore-gradient cyan-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">CODE &amp; CIRCUITS</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">TECHNICAL</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Hackathons, RoboWars, Cloud &amp; Web Design</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-gold" data-track="proshows">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=700&fit=crop');"></div>
+              <div class="explore-gradient gold-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">STAR NIGHTS</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">PROSHOWS</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Celebrity Concerts, DJ Battles &amp; Live Bands</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-green" data-track="robotics">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=700&fit=crop');"></div>
+              <div class="explore-gradient green-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">INNOVATION</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">ROBOTICS</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Combat RoboWars, Drone Obstacles &amp; IoT</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-orange" data-track="cultural">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=700&fit=crop');"></div>
+              <div class="explore-gradient orange-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">STAGE</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">CULTURAL</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Dance, Music, Theatrics &amp; Creative Arts</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-red" data-track="events">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&fit=crop');"></div>
+              <div class="explore-gradient red-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">CONFERENCES</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">EVENTS</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Workshops, Keynotes &amp; Paper Presentations</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-purple" data-track="games">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=700&fit=crop');"></div>
+              <div class="explore-gradient purple-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">ARENA</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">GAMES</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">LAN Esports, Tactical Shooters &amp; Tournaments</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-cyan" data-track="technical">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=700&fit=crop');"></div>
+              <div class="explore-gradient cyan-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">CODE &amp; CIRCUITS</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">TECHNICAL</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Hackathons, RoboWars, Cloud &amp; Web Design</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-gold" data-track="proshows">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=700&fit=crop');"></div>
+              <div class="explore-gradient gold-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">STAR NIGHTS</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">PROSHOWS</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Celebrity Concerts, DJ Battles &amp; Live Bands</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-green" data-track="robotics">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=700&fit=crop');"></div>
+              <div class="explore-gradient green-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">INNOVATION</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">ROBOTICS</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Combat RoboWars, Drone Obstacles &amp; IoT</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+            </div>
+
+            <!-- Group 2 (12 Cards - Seamless Infinite Clone) -->
+            <div class="explore-marquee-group" aria-hidden="true">
+            <div class="explore-card track-orange" data-track="cultural">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=700&fit=crop');"></div>
+              <div class="explore-gradient orange-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">STAGE</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">CULTURAL</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Dance, Music, Theatrics &amp; Creative Arts</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-red" data-track="events">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&fit=crop');"></div>
+              <div class="explore-gradient red-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">CONFERENCES</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">EVENTS</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Workshops, Keynotes &amp; Paper Presentations</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-purple" data-track="games">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=700&fit=crop');"></div>
+              <div class="explore-gradient purple-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">ARENA</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">GAMES</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">LAN Esports, Tactical Shooters &amp; Tournaments</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-cyan" data-track="technical">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=700&fit=crop');"></div>
+              <div class="explore-gradient cyan-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">CODE &amp; CIRCUITS</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">TECHNICAL</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Hackathons, RoboWars, Cloud &amp; Web Design</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-gold" data-track="proshows">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=700&fit=crop');"></div>
+              <div class="explore-gradient gold-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">STAR NIGHTS</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">PROSHOWS</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Celebrity Concerts, DJ Battles &amp; Live Bands</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-green" data-track="robotics">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=700&fit=crop');"></div>
+              <div class="explore-gradient green-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">INNOVATION</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">ROBOTICS</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Combat RoboWars, Drone Obstacles &amp; IoT</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-orange" data-track="cultural">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=700&fit=crop');"></div>
+              <div class="explore-gradient orange-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">STAGE</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">CULTURAL</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Dance, Music, Theatrics &amp; Creative Arts</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-red" data-track="events">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&fit=crop');"></div>
+              <div class="explore-gradient red-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">CONFERENCES</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">EVENTS</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Workshops, Keynotes &amp; Paper Presentations</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-purple" data-track="games">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=700&fit=crop');"></div>
+              <div class="explore-gradient purple-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">ARENA</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">GAMES</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">LAN Esports, Tactical Shooters &amp; Tournaments</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-cyan" data-track="technical">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=700&fit=crop');"></div>
+              <div class="explore-gradient cyan-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">CODE &amp; CIRCUITS</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">TECHNICAL</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Hackathons, RoboWars, Cloud &amp; Web Design</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-gold" data-track="proshows">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=700&fit=crop');"></div>
+              <div class="explore-gradient gold-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">STAR NIGHTS</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">PROSHOWS</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Celebrity Concerts, DJ Battles &amp; Live Bands</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="explore-card track-green" data-track="robotics">
+              <div class="explore-bg-img" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=700&fit=crop');"></div>
+              <div class="explore-gradient green-grad"></div>
+              <div class="explore-card-inner">
+                <span class="explore-badge">INNOVATION</span>
+                <div class="explore-title-box">
+                  <h3 class="explore-title">ROBOTICS</h3>
+                </div>
+                <div class="explore-details">
+                  <p class="explore-desc">Combat RoboWars, Drone Obstacles &amp; IoT</p>
+                  <a href="#/events" class="explore-link"><span>Explore Track</span> <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
         </div>

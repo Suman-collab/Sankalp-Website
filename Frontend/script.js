@@ -1887,12 +1887,8 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateCountdown, 1000);
   updateCountdown();
 
-  // Allow clicking on any timer box to trigger dice roll animation manually
-  document.querySelectorAll('.countdown-box').forEach(box => {
-    box.addEventListener('click', () => {
-      triggerBoxTick(box.id);
-    });
-  });
+  // Expose programmatic trigger for verification testing (no mouse interaction on timer)
+  window.triggerTimerBoxRoll = triggerBoxTick;
 
   // Theme logo upload handler: if image src is set in the future, display it and hide placeholder
   const themeLoadedLogo = document.getElementById('theme-loaded-logo');

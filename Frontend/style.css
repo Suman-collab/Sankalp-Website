@@ -1236,17 +1236,15 @@ body.is-loading {
   margin-bottom: 1.6rem;
 }
 
-/* Hologram Countdown Panel */
+/* Hologram Countdown Panel Base */
 .hologram-countdown-panel {
   max-width: 740px;
   margin: 0 auto 3.2rem;
-  background: linear-gradient(135deg, rgba(16, 20, 45, 0.75) 0%, rgba(6, 8, 20, 0.9) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: linear-gradient(135deg, #0e1424 0%, #060912 100%);
+  border: 1px solid rgba(245, 158, 11, 0.4);
   border-radius: 24px;
   padding: 2.2rem 2rem;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 45px rgba(245, 158, 11, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 45px rgba(245, 158, 11, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
 }
@@ -1274,63 +1272,42 @@ body.is-loading {
   perspective: 1200px;
 }
 
+/* Solid Box Like Dice (100% Opaque, 3D Bevel, Solid Cube Proportion) */
 .countdown-box {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 50%, rgba(10, 15, 30, 0.98) 100%);
-  border: 1px solid rgba(245, 158, 11, 0.32);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 0 15px rgba(245, 158, 11, 0.08);
+  background: linear-gradient(155deg, #1e2638 0%, #121826 48%, #090d16 100%);
+  border: 2px solid rgba(245, 158, 11, 0.65);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.95), 0 4px 10px rgba(0, 0, 0, 0.9), inset 0 2px 0 rgba(255, 255, 255, 0.22), inset 0 -3px 0 rgba(0, 0, 0, 0.75), inset 2px 0 0 rgba(255, 255, 255, 0.08), inset -2px 0 0 rgba(0, 0, 0, 0.5), 0 0 18px rgba(245, 158, 11, 0.12);
   padding: 1.6rem 0.9rem;
-  border-radius: 16px;
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  border-radius: 20px;
   user-select: none;
-  cursor: pointer;
+  cursor: default;
   transform-style: preserve-3d;
   will-change: transform;
 }
 
+/* NO Mouse Over / Hover on Timer - Remains Solid and Stationary */
 .countdown-box:hover {
-  transform: perspective(900px) translate3d(0, -10px, 25px) rotateX(-14deg) rotateY(12deg);
-  border-color: rgba(245, 158, 11, 0.85);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 28px rgba(245, 158, 11, 0.4);
+  transform: none !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.95), 0 4px 10px rgba(0, 0, 0, 0.9), inset 0 2px 0 rgba(255, 255, 255, 0.22), inset 0 -3px 0 rgba(0, 0, 0, 0.75), inset 2px 0 0 rgba(255, 255, 255, 0.08), inset -2px 0 0 rgba(0, 0, 0, 0.5), 0 0 18px rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.65);
 }
 
-/* Split-box flap horizontal line */
+/* Split-box flap line disabled: Solid dice face has seamless unbroken plane */
 .box-split-line {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: rgba(0, 0, 0, 0.75);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
-  pointer-events: none;
-  z-index: 2;
+  display: none !important;
 }
 
-.box-split-line::before,
-.box-split-line::after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  width: 6px;
-  height: 10px;
-  background: #f59e0b;
-  border-radius: 2px;
-  box-shadow: 0 0 8px rgba(245, 158, 11, 0.85);
-}
-.box-split-line::before { left: 0; }
-.box-split-line::after { right: 0; }
-
-/* Corner notches */
+/* Corner notches: Metallic dice corner bevel accents */
 .box-notch {
   position: absolute;
-  width: 8px;
-  height: 8px;
-  border-color: rgba(245, 158, 11, 0.75);
+  width: 9px;
+  height: 9px;
+  border-color: rgba(245, 158, 11, 0.85);
   border-style: solid;
   pointer-events: none;
   z-index: 3;
@@ -1350,10 +1327,10 @@ body.is-loading {
   perspective: 600px;
 }
 
-/* 3D Dice Roll Animation: Box leaps, tumbles in 3D through air and bounces like rolling dice */
+/* 3D Dice Roll Animation: Solid dice box somersaults from bottom to top with physical mass & bounce */
 .countdown-box.box-ticking {
   animation: diceRoll3D 0.52s cubic-bezier(0.2, 0.9, 0.3, 1.25);
-  border-color: rgba(251, 191, 36, 0.95);
+  border-color: rgba(251, 191, 36, 1);
   z-index: 10;
 }
 
@@ -1363,52 +1340,52 @@ body.is-loading {
 
 @keyframes diceRoll3D {
   0% {
-    transform: perspective(800px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.65);
-    border-color: rgba(245, 158, 11, 0.32);
+    transform: perspective(900px) translate3d(0, 0, 0) rotateX(0deg) scale(1);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.95), 0 4px 10px rgba(0, 0, 0, 0.9), inset 0 2px 0 rgba(255, 255, 255, 0.22), inset 0 -3px 0 rgba(0, 0, 0, 0.75);
+    border-color: rgba(245, 158, 11, 0.65);
   }
   22% {
-    /* Bottom kicks forward/upward, rolling from bottom to top into the air */
-    transform: perspective(800px) translate3d(-3px, -28px, 48px) rotateX(36deg) rotateY(-18deg) rotateZ(8deg) scale(1.1);
-    box-shadow: 0 32px 64px rgba(0, 0, 0, 0.85), 0 0 35px rgba(245, 158, 11, 0.7);
+    /* Bottom kicks forward/upward, launching the solid die from bottom to top */
+    transform: perspective(900px) translate3d(0, -32px, 50px) rotateX(44deg) rotateY(-10deg) scale(1.1);
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.95), 0 0 32px rgba(245, 158, 11, 0.65), inset 0 2px 0 rgba(255, 255, 255, 0.35);
     border-color: rgba(251, 191, 36, 1);
   }
   48% {
     /* Apex of bottom-to-top tumble: rolls over top edge with torque reversal */
-    transform: perspective(800px) translate3d(2px, -15px, 28px) rotateX(-24deg) rotateY(16deg) rotateZ(-6deg) scale(1.05);
-    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.75), 0 0 25px rgba(245, 158, 11, 0.5);
+    transform: perspective(900px) translate3d(0, -16px, 30px) rotateX(-28deg) rotateY(8deg) scale(1.06);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 25px rgba(245, 158, 11, 0.5);
   }
-  72% {
+  74% {
     /* Falling to surface with residual bottom-to-top momentum */
-    transform: perspective(800px) translate3d(-1px, -4px, 12px) rotateX(10deg) rotateY(-6deg) rotateZ(2deg) scale(1.02);
+    transform: perspective(900px) translate3d(0, -4px, 12px) rotateX(12deg) scale(1.02);
   }
-  86% {
-    /* Table impact squash */
-    transform: perspective(800px) translate3d(0, 5px, 0) rotateX(-6deg) rotateY(3deg) scale(0.97);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.9), 0 0 20px rgba(245, 158, 11, 0.4);
+  87% {
+    /* Solid dice impact squash on table */
+    transform: perspective(900px) translate3d(0, 5px, 0) rotateX(-5deg) scale(0.97);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.95), 0 0 20px rgba(245, 158, 11, 0.4);
   }
   94% {
     /* Micro elastic rebound settling */
-    transform: perspective(800px) translate3d(0, -2px, 0) rotateX(2deg) scale(1.01);
+    transform: perspective(900px) translate3d(0, -2px, 0) rotateX(2deg) scale(1.01);
   }
   100% {
     /* Solidly settled face-up */
-    transform: perspective(800px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.65);
-    border-color: rgba(245, 158, 11, 0.32);
+    transform: perspective(900px) translate3d(0, 0, 0) rotateX(0deg) scale(1);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.95), 0 4px 10px rgba(0, 0, 0, 0.9), inset 0 2px 0 rgba(255, 255, 255, 0.22), inset 0 -3px 0 rgba(0, 0, 0, 0.75);
+    border-color: rgba(245, 158, 11, 0.65);
   }
 }
 
 @keyframes diceDigitLand {
   0% {
     /* Digit enters rolling UP from the bottom */
-    transform: scale(0.75) translateY(36px) rotateX(-50deg);
-    opacity: 0.15;
-    filter: blur(3px);
+    transform: scale(0.7) translateY(44px) rotateX(-65deg);
+    opacity: 0.1;
+    filter: blur(4px);
   }
-  38% {
+  36% {
     /* Apex of bottom-to-top roll with intense amber glow */
-    transform: scale(1.15) translateY(-6px) rotateX(15deg);
+    transform: scale(1.15) translateY(-8px) rotateX(16deg);
     opacity: 1;
     color: #fef08a;
     filter: blur(0px) drop-shadow(0 0 25px rgba(245, 158, 11, 1));

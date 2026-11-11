@@ -1,1 +1,699 @@
-[]
+[
+  {
+    "id": "navoyuktam",
+    "eventName": "Navoyuktam",
+    "clubName": "REC",
+    "category": "Renewable Prototype Showcase",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "code-arena-2-0",
+    "eventName": "Code Arena 2.0",
+    "clubName": "DSC",
+    "category": "Competitive Programming",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "sampratya-prastuti",
+    "eventName": "Sampratya Prastuti",
+    "clubName": "EHC",
+    "category": "Electronics & Presentation",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "the-52nd-secret",
+    "eventName": "The 52nd Secret",
+    "clubName": "REC",
+    "category": "Eco-Mystery Escape",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "bgmi-tournament",
+    "eventName": "BGMI Tournament",
+    "clubName": "DSC",
+    "category": "Mobile Esports",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "cross-wired",
+    "eventName": "Cross - Wired",
+    "clubName": "EHC",
+    "category": "Circuit Debugging",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "ideaz-odishi",
+    "eventName": "Ideaz Odishi",
+    "clubName": "DSC",
+    "category": "Data Analytics & Innovation",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "gameathon",
+    "eventName": "Gameathon",
+    "clubName": "CLUB MULTIMEDIA",
+    "category": "Media & Game Design",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "pc-multiplayer-game",
+    "eventName": "PC Multiplayer Game",
+    "clubName": "CLUB MULTIMEDIA",
+    "category": "Esports & LAN",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "free-fire-tournament",
+    "eventName": "Free Fire Tournament",
+    "clubName": "CLOUD COMPUTING CLUB",
+    "category": "Mobile Esports",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "cloud-sprint",
+    "eventName": "Cloud Sprint",
+    "clubName": "CLOUD COMPUTING CLUB",
+    "category": "Cloud & Infrastructure",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "code-heist",
+    "eventName": "Code Heist",
+    "clubName": "CLOUD COMPUTING CLUB",
+    "category": "CTF & Cryptography",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "rover-rescue-mission",
+    "eventName": "Rover Rescue Mission",
+    "clubName": "ASTRONOMY CLUB",
+    "category": "Space Robotics",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "black-hole-escape",
+    "eventName": "Black Hole Escape",
+    "clubName": "ASTRONOMY CLUB",
+    "category": "Cosmology Quiz & Logic",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "project-display-astronomy",
+    "eventName": "Project Display",
+    "clubName": "ASTRONOMY CLUB",
+    "category": "Space Exhibition",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "robowars-ragebot",
+    "eventName": "Robowars : Ragebot",
+    "clubName": "NRC",
+    "category": "Combat Robotics",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "ball-collection-orb-heist",
+    "eventName": "Ball Collection : Orb Heist",
+    "clubName": "NRC",
+    "category": "Autonomous & Manual Robotics",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "robotio",
+    "eventName": "Robotio",
+    "clubName": "NRC",
+    "category": "Line Following & Autonomous",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "nist-idol",
+    "eventName": "NIST Idol",
+    "clubName": "NMS",
+    "category": "Vocals & Music",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "confusion-ka-tadka",
+    "eventName": "Confusion Ka Tadka",
+    "clubName": "AD",
+    "category": "Comedy & Improv",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "nist-got-latent",
+    "eventName": "NIST Got Latent",
+    "clubName": "AD",
+    "category": "Talent & Standup",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "minds-in-motion",
+    "eventName": "Minds in Motion",
+    "clubName": "NCS",
+    "category": "Aptitude & Logic",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "the-unity-quest",
+    "eventName": "The Unity Quest",
+    "clubName": "NCS",
+    "category": "Campus Treasure Hunt",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "code-crusade-5-0",
+    "eventName": "Code Crusade 5.0",
+    "clubName": "CLUB EXCEL",
+    "category": "Hackathon & DSA",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "dark-trace",
+    "eventName": "Dark trace",
+    "clubName": "CLUB EXCEL",
+    "category": "Cyber Security & Forensics",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "photo-pocket",
+    "eventName": "Photo Pocket",
+    "clubName": "FOTO FOLKS",
+    "category": "Mobile Photography",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "frame-wheel",
+    "eventName": "Frame Wheel",
+    "clubName": "FOTO FOLKS",
+    "category": "DSLR Photography",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "bid-the-bidder",
+    "eventName": "Bid The Bidder",
+    "clubName": "CAT CLUB",
+    "category": "Auction & Strategy",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "coc-1v1-showdown",
+    "eventName": "COC 1V1 Showdown",
+    "clubName": "CAT CLUB",
+    "category": "Clash of Clans Esports",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "paper-tower-challange",
+    "eventName": "Paper Tower Challange",
+    "clubName": "CAT CLUB",
+    "category": "Structural Engineering",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "tug-of-war",
+    "eventName": "Tug Of War",
+    "clubName": "NCC",
+    "category": "Strength & Athletics",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "out-play",
+    "eventName": "OUT PLAY",
+    "clubName": "NCC",
+    "category": "Tactical Obstacle Sprint",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "mystery-hand-challange",
+    "eventName": "Mystery Hand Challange",
+    "clubName": "NSS",
+    "category": "Sensory & Coordination",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "human-tic-tac-toe",
+    "eventName": "Human Tic-Tac-Toe",
+    "clubName": "NSS",
+    "category": "Speed & Tactical Relay",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "ultimate-challange-arena",
+    "eventName": "Ultimate challange Arena",
+    "clubName": "EUREKA",
+    "category": "Logic & Mind Gauntlet",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "thrill-topia",
+    "eventName": "Thrill-Topia",
+    "clubName": "EUREKA",
+    "category": "Adventure & Mind Games",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "beat-blitz",
+    "eventName": "Beat Blitz",
+    "clubName": "NDC",
+    "category": "Dance Battles",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "the-fun-fiesta",
+    "eventName": "The Fun Fiesta",
+    "clubName": "INNOVA",
+    "category": "Tech Carnival & Games",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "the-mind-storm",
+    "eventName": "The Mind Storm",
+    "clubName": "INNOVA",
+    "category": "Brainstorming & Hackathon",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "fashion-show",
+    "eventName": "Fashion Show",
+    "clubName": "NFCC",
+    "category": "Runway & Couture",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  },
+  {
+    "id": "colour-chase",
+    "eventName": "Colour Chase",
+    "clubName": "NFCC",
+    "category": "Live Creative Sprint",
+    "date": "To Be Announced",
+    "venue": "To Be Announced",
+    "prizePool": "To Be Announced",
+    "image": "",
+    "registrationLink": "#",
+    "eventDescription": "To Be Announced",
+    "rules": [
+      "Event schedule and slot timings to be announced.",
+      "Detailed problem statement and guidelines to be announced.",
+      "Prize pool and certificate details to be announced."
+    ]
+  }
+]

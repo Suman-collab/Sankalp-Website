@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SANKALP 26-27 | NIST University</title>
-  <meta name="description" content="SANKALP 26-27 - The Annual National Level Techno-Management Symposium organized by NIST University, Berhampur, Odisha.">
+  <title>SANKALP 2K26 | NIST University</title>
+  <meta name="description" content="SANKALP 2K26 - The Annual National Level Techno-Management Symposium organized by NIST University, Berhampur, Odisha.">
   <link rel="icon" type="image/png" href="assets/images/Sankalp_Final_Logo_Transparent.png">
 
   <!-- Google Fonts: Poppins, Cinzel, Space Grotesk -->
@@ -36,6 +36,7 @@
   <div id="preloader" class="preloader-overlay">
     <div class="video-container">
       <video id="reloader-video" playsinline muted preload="auto" autoplay>
+        <source src="Videos/Preloader.mp4" type="video/mp4">
         <source src="Videos/reloader.mp4" type="video/mp4">
         <source src="Videos/newpreloader.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
@@ -49,7 +50,7 @@
       <div class="hud-top">
         <div class="hud-chip">
           <span class="blinking-dot"></span>
-          <span class="hud-label">NIST_UNIVERSITY // SANKALP 26-27</span>
+          <span class="hud-label">NIST_UNIVERSITY // SANKALP 2K26</span>
         </div>
         <div class="hud-status">SYSTEM_STATUS: <span class="status-active">INITIALIZING CORE</span></div>
         <div class="hud-actions">
@@ -61,13 +62,15 @@
       </div>
 
       <div class="hud-center">
-        <div class="cyber-bracket left">[</div>
         <div class="hud-title-wrap">
           <img src="assets/images/Sankalp_Final_Logo_Transparent.png" alt="Sankalp Logo" class="hud-emblem">
-          <h1 class="hud-main-title">SANKALP 26-27</h1>
+          <div class="hud-title-row">
+            <span class="cyber-bracket left">[</span>
+            <h1 class="hud-main-title">SANKALP 2K26</h1>
+            <span class="cyber-bracket right">]</span>
+          </div>
           <p class="hud-tagline">NATIONAL INSTITUTE OF SCIENCE AND TECHNOLOGY</p>
         </div>
-        <div class="cyber-bracket right">]</div>
       </div>
 
       <div class="hud-bottom">
@@ -160,6 +163,7 @@
         <!-- Hero Background Video & Cosmic Aura -->
         <div class="hero-video-wrap">
           <video class="hero-bg-video" autoplay loop muted playsinline preload="auto" poster="assets/images/home_theme_bg_hq.jpg">
+            <source src="Videos/Preloader.mp4" type="video/mp4">
             <source src="Videos/reloader.mp4" type="video/mp4">
             <source src="Videos/newpreloader.mp4" type="video/mp4">
           </video>
@@ -187,36 +191,64 @@
         </a>
       </section>
 
-      <!-- SECTION 2: SANKALP 26-27 & HOLOGRAM COUNTDOWN -->
+      <!-- SECTION 2: SANKALP 2K26 & HOLOGRAM COUNTDOWN -->
       <section class="countdown-section" id="countdown">
         <div class="container text-center">
           <div class="fest-edition-badge reveal-on-scroll">
             <span class="edition-pulse"></span>
-            <span>NATIONAL INSTITUTE OF SCIENCE AND TECHNOLOGY</span>
+            <span>ANNUAL NATIONAL LEVEL TECHNO - MANAGEMENT &amp; SCIENCE SYMPOSIUM</span>
           </div>
           
           <h1 class="sankalp-main-heading reveal-on-scroll delay-1">
-            SANKALP <span class="gold-gradient-text">26-27</span>
+            SANKALP <span class="gold-gradient-text">2K26</span>
           </h1>
-          <p class="sankalp-subheading reveal-on-scroll delay-2">NIST University, Berhampur &bull; A New Chapter on the Horizon</p>
+          <p class="sankalp-subheading reveal-on-scroll delay-2">26th and 27th Nov 2026 &bull; NIST University, Berhampur</p>
 
-          <!-- Hologram Glass Countdown Panel -->
+          <!-- Hologram Glass Countdown Panel with 3D Split-Box Effect -->
           <div class="hologram-countdown-panel reveal-scale delay-3">
             <div class="hologram-grid">
-              <div class="countdown-box">
-                <span class="count-digit" id="timer-days">17</span>
+              <div class="countdown-box" id="box-days" data-unit="days">
+                <div class="box-notch top-left"></div>
+                <div class="box-notch top-right"></div>
+                <div class="box-notch bottom-left"></div>
+                <div class="box-notch bottom-right"></div>
+                <div class="box-split-line"></div>
+                <div class="box-digit-wrap">
+                  <span class="count-digit" id="timer-days">17</span>
+                </div>
                 <span class="count-tag">DAYS</span>
               </div>
-              <div class="countdown-box">
-                <span class="count-digit" id="timer-hours">09</span>
+              <div class="countdown-box" id="box-hours" data-unit="hours">
+                <div class="box-notch top-left"></div>
+                <div class="box-notch top-right"></div>
+                <div class="box-notch bottom-left"></div>
+                <div class="box-notch bottom-right"></div>
+                <div class="box-split-line"></div>
+                <div class="box-digit-wrap">
+                  <span class="count-digit" id="timer-hours">09</span>
+                </div>
                 <span class="count-tag">HOURS</span>
               </div>
-              <div class="countdown-box">
-                <span class="count-digit" id="timer-minutes">45</span>
+              <div class="countdown-box" id="box-minutes" data-unit="minutes">
+                <div class="box-notch top-left"></div>
+                <div class="box-notch top-right"></div>
+                <div class="box-notch bottom-left"></div>
+                <div class="box-notch bottom-right"></div>
+                <div class="box-split-line"></div>
+                <div class="box-digit-wrap">
+                  <span class="count-digit" id="timer-minutes">45</span>
+                </div>
                 <span class="count-tag">MINUTES</span>
               </div>
-              <div class="countdown-box">
-                <span class="count-digit" id="timer-seconds">30</span>
+              <div class="countdown-box" id="box-seconds" data-unit="seconds">
+                <div class="box-notch top-left"></div>
+                <div class="box-notch top-right"></div>
+                <div class="box-notch bottom-left"></div>
+                <div class="box-notch bottom-right"></div>
+                <div class="box-split-line"></div>
+                <div class="box-digit-wrap">
+                  <span class="count-digit" id="timer-seconds">30</span>
+                </div>
                 <span class="count-tag">SECONDS</span>
               </div>
             </div>
@@ -282,23 +314,6 @@
                 </div>
               </div>
             </div>
-            <!-- Teaser Card 3: Mr. & Miss Sankalp / Runway -->
-            <div class="shade-card fashion-night reveal-scale delay-3">
-              <div class="shade-card-glow orange-glow"></div>
-              <div class="shade-card-inner">
-                <div class="shade-image-wrap placeholder-wrap">
-                  <div class="teaser-icon-box">
-                    <i class="fa-solid fa-crown"></i>
-                  </div>
-                  <div class="shade-badge bg-orange">Flagship Runway</div>
-                </div>
-                <div class="shade-content">
-                  <span class="artist-subtag">Elegance &amp; Wit</span>
-                  <h3 class="artist-name">Mr. &amp; Miss Sankalp</h3>
-                  <p class="shade-desc">The premier style, charisma, and talent showcase runway competition.</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -361,13 +376,13 @@
                 <span class="stat-number">28+</span>
                 <span class="stat-label">Years of Excellence</span>
               </div>
-              <div class="stat-box highlight-stat reveal-scale delay-5" data-target="28" data-suffix="th">
-                <span class="stat-number">28th</span>
-                <span class="stat-label">Ranked Nationally</span>
-              </div>
-              <div class="stat-box highlight-stat reveal-scale delay-6" data-target="21">
-                <span class="stat-number">21</span>
+              <div class="stat-box highlight-stat reveal-scale delay-5" data-target="19">
+                <span class="stat-number">19</span>
                 <span class="stat-label">Active Student Clubs</span>
+              </div>
+              <div class="stat-box highlight-stat reveal-scale delay-6" data-target="42" data-suffix="+">
+                <span class="stat-number">42+</span>
+                <span class="stat-label">Symposium Events</span>
               </div>
             </div>
           </div>
@@ -455,7 +470,7 @@
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="faq-collapse">
-                <p>Sankalp features a diverse spectrum of events including cultural performances (dance, music, drama), technical competitions (coding, robotics, web designing, cloud hackathons), sports and LAN tournaments, fashion showcases (Mr. &amp; Miss Sankalp), and celebrity star nights.</p>
+                <p>Sankalp features a diverse spectrum of events including cultural performances (dance, music, drama), technical competitions (coding, robotics, web designing, cloud hackathons), sports and LAN tournaments, flagship 2K26 showcases, and celebrity star nights.</p>
               </div>
             </div>
 
@@ -492,13 +507,22 @@
 
           <div class="map-frame-wrapper reveal-scale delay-1">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.886026577317!2d84.85695677520857!3d19.20015528203525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3d573138b3017f%3A0x6b8014e6e66c6b84!2sNIST%20University!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+              src="https://maps.google.com/maps?q=NIST+University,+Pallur+Hills,+Golanthara,+Berhampur,+Odisha+761008&t=&z=16&ie=UTF8&iwloc=&output=embed" 
               class="venue-iframe" 
               allowfullscreen="" 
               loading="lazy" 
               referrerpolicy="no-referrer-when-downgrade"
               title="NIST University Campus Map">
             </iframe>
+          </div>
+
+          <div class="text-center reveal-on-scroll delay-2" style="margin-top: 1.8rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://maps.google.com/?q=NIST+University+Berhampur+Odisha" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.8rem 1.8rem; border-radius:30px; font-weight:600; text-decoration:none;">
+              <i class="fa-solid fa-location-dot"></i> Open in Google Maps
+            </a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=NIST+University+Berhampur" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.8rem 1.8rem; border-radius:30px; border:1px solid var(--gold-primary); color:#fff; text-decoration:none; font-weight:600; background:rgba(245,158,11,0.1);">
+              <i class="fa-solid fa-diamond-turn-right" style="color:var(--gold-primary);"></i> Get Directions
+            </a>
           </div>
         </div>
       </section>
@@ -522,10 +546,10 @@
 
       <div class="page-header text-center reveal-on-scroll">
         <h1 class="page-title events-title-wrap">
-          <span class="title-sankalp gold-gradient-text">SANKALP 26-27</span>
+          <span class="title-sankalp gold-gradient-text">SANKALP 2K26</span>
           <span class="title-events">Festival Events</span>
         </h1>
-        <p class="page-subtitle">Competitions across Coding, Robotics, Esports, Design, and Culture.</p>
+        <p class="page-subtitle">41 Flagship Competitions Across 19 Student Clubs &bull; 26th &amp; 27th Nov 2026</p>
       </div>
 
       <div class="container">
@@ -564,7 +588,7 @@
         <div class="events-theme-overlay"></div>
       </div>
       <div class="page-header text-center reveal-on-scroll">
-        <span class="gold-badge">NIST STUDENT CLUBS</span>
+        <div class="badge-wrap"><span class="gold-badge">NIST STUDENT CLUBS</span></div>
         <h1 class="page-title gold-gradient-text">Explore Our Clubs</h1>
         <p class="page-subtitle">The driving engines behind Sankalp. Technical, cultural, and sports clubs.</p>
       </div>
@@ -591,7 +615,7 @@
         <div class="events-theme-overlay"></div>
       </div>
       <div class="page-header text-center reveal-on-scroll">
-        <span class="gold-badge">SANKALP COMMITTEE</span>
+        <div class="badge-wrap"><span class="gold-badge">SANKALP COMMITTEE</span></div>
         <h1 class="page-title gold-gradient-text">Meet The Team</h1>
         <p class="page-subtitle">The dedicated student leads, coordinators, and faculty driving the symposium.</p>
       </div>
@@ -633,7 +657,7 @@
         <div class="events-theme-overlay"></div>
       </div>
       <div class="page-header text-center reveal-on-scroll">
-        <span class="gold-badge">SANKALP CHRONICLES</span>
+        <div class="badge-wrap"><span class="gold-badge">SANKALP CHRONICLES</span></div>
         <h1 class="page-title gold-gradient-text">Festival Gallery</h1>
         <p class="page-subtitle">Relive the energy, star nights, robot clashes, and celebration moments.</p>
       </div>
@@ -667,24 +691,21 @@
           </p>
         </div>
 
-        <!-- Column 2: Office Bearer Contacts (Ready for new details) -->
+        <!-- Column 2: Office Bearer Contacts -->
         <div class="footer-col">
           <h4 class="footer-heading">Office Bearers</h4>
           <div class="bearer-contact-list">
             <div class="bearer-item">
               <span class="bearer-role">President</span>
-              <strong class="bearer-name">To Be Announced</strong>
-              <span class="bearer-phone"><i class="fa-solid fa-phone"></i> +91 XXXXX XXXXX</span>
+              <strong class="bearer-name">Ashmitra Arpit Samantaray</strong>
             </div>
             <div class="bearer-item">
               <span class="bearer-role">Secretary</span>
-              <strong class="bearer-name">To Be Announced</strong>
-              <span class="bearer-phone"><i class="fa-solid fa-phone"></i> +91 XXXXX XXXXX</span>
+              <strong class="bearer-name">Sangam Kumar Verma</strong>
             </div>
             <div class="bearer-item">
               <span class="bearer-role">Treasurer</span>
-              <strong class="bearer-name">To Be Announced</strong>
-              <span class="bearer-phone"><i class="fa-solid fa-phone"></i> +91 XXXXX XXXXX</span>
+              <strong class="bearer-name">Rajkumari Padhi</strong>
             </div>
           </div>
         </div>
@@ -709,12 +730,12 @@
       <!-- Bottom Credits Bar -->
       <div class="footer-bottom-bar">
         <div class="credits-left">
-          <span>#SANKALP 2026-27</span>
+          <span>#SANKALP 2K26</span>
           <span class="sep">•</span>
           <span>Made with passion by Sankalp Tech Team</span>
         </div>
         <div class="credits-right">
-          <span>&copy; 2026-2027 SANKALP - NIST University. All Rights Reserved.</span>
+          <span>&copy; 2026 SANKALP 2K26 - NIST University. All Rights Reserved.</span>
         </div>
       </div>
     </div>

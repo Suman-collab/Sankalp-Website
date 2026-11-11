@@ -1,8 +1,306 @@
 [
   {
     "id": "rec-club",
-    "name": "Renewable Energy Club (REC)",
+    "name": "REC",
+    "shortName": "REC",
+    "category": "Technical & Clean Energy",
+    "catClass": "cat-technical",
+    "icon": "fa-solid fa-solar-panel",
+    "description": "Renewable Energy Club: Pioneering sustainable clean tech, solar photovoltaics, EV technology, and environmental innovation under NIST University.",
     "logo": "assets/images/rec_club_logo.png",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/rec_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 2
+  },
+  {
+    "id": "data-science-club",
+    "name": "DSC",
+    "shortName": "Data Science Club",
+    "category": "AI & Data Science",
+    "catClass": "cat-technical",
+    "icon": "fa-solid fa-brain",
+    "description": "Data Science Club: Empowering students in statistical modeling, machine learning, competitive coding, data analytics, and high-intensity gaming showdowns.",
+    "logo": "assets/images/Sankalp_Final_Logo_Transparent.png",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/datascience_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 3
+  },
+  {
+    "id": "ehc-club",
+    "name": "EHC",
+    "shortName": "EHC",
+    "category": "Electronics & IoT",
+    "catClass": "cat-technical",
+    "icon": "fa-solid fa-microchip",
+    "description": "Electronics Hobby Club diving into embedded microcontrollers, PCB fabrication, FPGA architectures, sensor telemetry, and hardware debugging.",
+    "logo": "assets/images/ehc_club_logo.jpg",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/ehc_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 2
+  },
+  {
+    "id": "club-multimedia",
+    "name": "CLUB MULTIMEDIA",
+    "shortName": "Multimedia",
+    "category": "Media & VFX",
+    "catClass": "cat-media",
+    "icon": "fa-solid fa-camera-retro",
+    "description": "NIST's digital creation, game design, and media hub specializing in video editing, 3D modeling, cinematography, and interactive esports.",
+    "logo": "assets/images/Sankalp_Final_Logo_Transparent.png",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/multimedia_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 2
+  },
+  {
+    "id": "cloud-computing-club",
+    "name": "CLOUD COMPUTING CLUB",
+    "shortName": "Cloud Club",
+    "category": "Cloud & Systems",
+    "catClass": "cat-technical",
+    "icon": "fa-solid fa-cloud",
+    "description": "Pioneering distributed infrastructure, serverless deployments, Kubernetes, cybersecurity quests, and campus mobile esports tournaments.",
+    "logo": "assets/images/Sankalp_Final_Logo_Transparent.png",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/cloudops_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 3
+  },
+  {
+    "id": "astronomy-club",
+    "name": "ASTRONOMY CLUB",
+    "shortName": "Astronomy",
+    "category": "Space Tech & Physics",
+    "catClass": "cat-technical",
+    "icon": "fa-solid fa-shuttle-space",
+    "description": "Unraveling celestial mechanics, telescope observation, planetary rovers, astrophysical cosmology, and aerospace project exhibitions.",
+    "logo": "assets/images/Sankalp_Final_Logo_Transparent.png",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/astronomy_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 3
+  },
+  {
+    "id": "nrc-robotics-club",
+    "name": "NRC",
+    "shortName": "NRC",
+    "category": "Robotics & Hardware",
+    "catClass": "cat-technical",
+    "icon": "fa-solid fa-robot",
+    "description": "NIST Robotics Club: Heavyweight steel combat bots, line followers, autonomous rovers, and high-adrenaline arena competitions.",
+    "logo": "assets/images/Sankalp_Final_Logo_Transparent.png",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/nrc_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 3
+  },
+  {
+    "id": "nms-music-club",
+    "name": "NMS",
+    "shortName": "NMS",
+    "category": "Cultural & Music",
+    "catClass": "cat-cultural",
+    "icon": "fa-solid fa-guitar",
+    "description": "NIST Music Society: The melodic heartbeat of NIST, championing vocal virtuosity, acoustic sets, rock bands, and the iconic NIST Idol.",
+    "logo": "assets/images/Sankalp_Final_Logo_Transparent.png",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/nms_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
     "eventCount": 1
+  },
+  {
+    "id": "ad-dramatics-club",
+    "name": "AD",
+    "shortName": "AD",
+    "category": "Cultural & Theatre",
+    "catClass": "cat-cultural",
+    "icon": "fa-solid fa-masks-theater",
+    "description": "Acting & Dramatics Society: Delivering evocative stage plays, hilarious situational improv, stand-up comedy, and raw campus talent showcases.",
+    "logo": "assets/images/Sankalp_Final_Logo_Transparent.png",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/ad_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 2
+  },
+  {
+    "id": "ncs-club",
+    "name": "NCS",
+    "shortName": "NCS",
+    "category": "Literary & Strategy",
+    "catClass": "cat-cultural",
+    "icon": "fa-solid fa-puzzle-piece",
+    "description": "NIST Creative & Communication Society: Fostering cognitive dexterity, team coordination trials, lateral thinking, and campus treasure hunts.",
+    "logo": "assets/images/Sankalp_Final_Logo_Transparent.png",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/ncs_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 2
+  },
+  {
+    "id": "club-excel",
+    "name": "CLUB EXCEL",
+    "shortName": "Excel",
+    "category": "Software & Coding",
+    "catClass": "cat-technical",
+    "icon": "fa-solid fa-code",
+    "description": "NIST's premier software development society focusing on full-stack architecture, competitive programming, cybersecurity, and hackathons.",
+    "logo": "assets/images/club_excel_logo.png",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/clubexcel_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 2
+  },
+  {
+    "id": "foto-folks",
+    "name": "FOTO FOLKS",
+    "shortName": "Foto Folks",
+    "category": "Photography & Arts",
+    "catClass": "cat-media",
+    "icon": "fa-solid fa-camera",
+    "description": "Capturing immortal frames of NIST campus life, visual perspectives, DSLR light painting, street portraits, and creative photo storytelling.",
+    "logo": "assets/images/foto_folks_logo.jpg",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/fotofolks_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 2
+  },
+  {
+    "id": "cat-club",
+    "name": "CAT CLUB",
+    "shortName": "CAT Club",
+    "category": "Aptitude & Strategy",
+    "catClass": "cat-general",
+    "icon": "fa-solid fa-chess",
+    "description": "Club for Aptitude and Talent: Sharpening quantitative instincts, tactical auctions, competitive esports, and physics engineering challenges.",
+    "logo": "assets/images/Sankalp_Final_Logo_Transparent.png",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/catclub_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 3
+  },
+  {
+    "id": "ncc-club",
+    "name": "NCC",
+    "shortName": "NCC",
+    "category": "Athletics & Discipline",
+    "catClass": "cat-sports",
+    "icon": "fa-solid fa-shield",
+    "description": "National Cadet Corps NIST Unit: Building unshakeable leadership, physical grit, tactical obstacle sprints, and high-power sportsmanship.",
+    "logo": "assets/images/Sankalp_Final_Logo_Transparent.png",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/ncc_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 2
+  },
+  {
+    "id": "nss-club",
+    "name": "NSS",
+    "shortName": "NSS",
+    "category": "Social Action & Games",
+    "catClass": "cat-social",
+    "icon": "fa-solid fa-hand-holding-heart",
+    "description": "National Service Scheme: Dedicated to national solidarity, community engagement, fun sensory games, and fast-paced athletic relays.",
+    "logo": "assets/images/Sankalp_Final_Logo_Transparent.png",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/nss_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 2
+  },
+  {
+    "id": "eureka-club",
+    "name": "EUREKA",
+    "shortName": "Eureka",
+    "category": "Logic & Mind Games",
+    "catClass": "cat-general",
+    "icon": "fa-solid fa-lightbulb",
+    "description": "Eureka Club: Sparking inquisitive minds through multi-layered cipher arenas, lateral thinking gauntlets, and carnival mind games.",
+    "logo": "assets/images/eureka_club_logo.jpg",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/eureka_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 2
+  },
+  {
+    "id": "ndc-dance-club",
+    "name": "NDC",
+    "shortName": "NDC",
+    "category": "Cultural & Dance",
+    "catClass": "cat-cultural",
+    "icon": "fa-solid fa-person-walking",
+    "description": "NIST Dance Club: Igniting Sankalp's center stage with hip-hop battles, classical fusion, contemporary expression, and synchronized dance battles.",
+    "logo": "assets/images/Sankalp_Final_Logo_Transparent.png",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/ndc_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 1
+  },
+  {
+    "id": "club-innova",
+    "name": "INNOVA",
+    "shortName": "Innova",
+    "category": "Innovation & Prototyping",
+    "catClass": "cat-technical",
+    "icon": "fa-solid fa-gears",
+    "description": "Club Innova: Turning creative tech concepts into prototypes, interactive carnival stunts, hackathons, and design sprint solutions.",
+    "logo": "assets/images/Sankalp_Final_Logo_Transparent.png",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/innova_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 2
+  },
+  {
+    "id": "nfcc-fashion-club",
+    "name": "NFCC",
+    "shortName": "NFCC",
+    "category": "Fashion & Lifestyle",
+    "catClass": "cat-cultural",
+    "icon": "fa-solid fa-shirt",
+    "description": "NIST Fashion & Couture Club: Curating futuristic couture, handloom weaves, stage choreography, speed styling, and premier runway walk competitions.",
+    "logo": "assets/images/nfcc_club_logo.png",
+    "socials": {
+      "website": "https://nist.edu",
+      "instagram": "https://instagram.com/nfcc_nist",
+      "linkedin": "https://linkedin.com/school/nist-berhampur"
+    },
+    "eventCount": 2
   }
 ]

@@ -1067,6 +1067,7 @@ body.is-loading {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.2rem;
+  perspective: 1200px;
 }
 
 .countdown-box {
@@ -1080,15 +1081,17 @@ body.is-loading {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 0 15px rgba(245, 158, 11, 0.08);
   padding: 1.6rem 0.9rem;
   border-radius: 16px;
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
-  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
   user-select: none;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .countdown-box:hover {
-  transform: translateY(-5px);
-  border-color: rgba(245, 158, 11, 0.75);
-  box-shadow: 0 16px 36px rgba(245, 158, 11, 0.35), inset 0 0 20px rgba(245, 158, 11, 0.2);
+  transform: perspective(900px) translate3d(0, -10px, 25px) rotateX(-14deg) rotateY(12deg);
+  border-color: rgba(245, 158, 11, 0.85);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 28px rgba(245, 158, 11, 0.4);
 }
 
 /* Split-box flap horizontal line */
@@ -1139,58 +1142,79 @@ body.is-loading {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   height: clamp(3.2rem, 7vw, 5.2rem);
-  perspective: 500px;
+  perspective: 600px;
 }
 
-/* 3D Box tick keyframe on time change - 3D rolling drum impact */
+/* 3D Dice Roll Animation: Box leaps, tumbles in 3D through air and bounces like rolling dice */
 .countdown-box.box-ticking {
-  animation: boxRolling3D 0.55s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  animation: diceRoll3D 0.52s cubic-bezier(0.2, 0.9, 0.3, 1.25);
   border-color: rgba(251, 191, 36, 0.95);
+  z-index: 10;
 }
 
 .countdown-box.box-ticking .count-digit {
-  animation: digitRollDown 0.55s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  animation: diceDigitLand 0.52s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 }
 
-@keyframes boxRolling3D {
+@keyframes diceRoll3D {
   0% {
-    transform: perspective(600px) rotateX(0deg) scale(1);
+    transform: perspective(800px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.65);
+    border-color: rgba(245, 158, 11, 0.32);
   }
-  30% {
-    transform: perspective(600px) rotateX(-16deg) scale(1.04);
-    box-shadow: 0 22px 45px rgba(245, 158, 11, 0.55), inset 0 0 25px rgba(245, 158, 11, 0.35);
+  22% {
+    /* Die thrown up into air, spinning on all 3 axes */
+    transform: perspective(800px) translate3d(-4px, -24px, 45px) rotateX(-32deg) rotateY(26deg) rotateZ(-14deg) scale(1.1);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(245, 158, 11, 0.7);
+    border-color: rgba(251, 191, 36, 1);
   }
-  65% {
-    transform: perspective(600px) rotateX(8deg) scale(1.02);
+  48% {
+    /* Apex tumble, reverse torque */
+    transform: perspective(800px) translate3d(3px, -14px, 30px) rotateX(24deg) rotateY(-22deg) rotateZ(10deg) scale(1.06);
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.75), 0 0 25px rgba(245, 158, 11, 0.5);
+  }
+  72% {
+    /* Falling to surface, counter-wobble */
+    transform: perspective(800px) translate3d(-2px, -3px, 12px) rotateX(-14deg) rotateY(12deg) rotateZ(-4deg) scale(1.02);
+  }
+  86% {
+    /* Hard impact bounce / squash on table */
+    transform: perspective(800px) translate3d(0, 5px, 0) rotateX(8deg) rotateY(-6deg) rotateZ(2deg) scale(0.97);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.9), 0 0 20px rgba(245, 158, 11, 0.4);
+  }
+  94% {
+    /* Micro elastic rebound */
+    transform: perspective(800px) translate3d(0, -2px, 0) rotateX(-3deg) rotateY(2deg) rotateZ(-1deg) scale(1.01);
   }
   100% {
-    transform: perspective(600px) rotateX(0deg) scale(1);
+    /* Solidly settled face-up */
+    transform: perspective(800px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.65);
+    border-color: rgba(245, 158, 11, 0.32);
   }
 }
 
-@keyframes digitRollDown {
+@keyframes diceDigitLand {
   0% {
-    transform: translateY(-90%) rotateX(70deg) scale(0.85);
-    opacity: 0.15;
-    filter: blur(4px);
+    transform: scale(0.75) translateY(-20px) rotateX(50deg);
+    opacity: 0.2;
+    filter: blur(3px);
   }
-  45% {
+  38% {
+    transform: scale(1.15) translateY(4px) rotateX(-18deg);
     opacity: 1;
-    filter: blur(0px);
-  }
-  75% {
-    transform: translateY(12%) rotateX(-14deg) scale(1.06);
     color: #fef08a;
+    filter: blur(0px) drop-shadow(0 0 25px rgba(245, 158, 11, 1));
+  }
+  72% {
+    transform: scale(0.96) translateY(-2px) rotateX(8deg);
   }
   100% {
-    transform: translateY(0) rotateX(0deg) scale(1);
+    transform: scale(1) translateY(0) rotateX(0deg);
     opacity: 1;
     color: #fff;
-    filter: drop-shadow(0 0 18px rgba(245, 158, 11, 0.85));
+    filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.8));
   }
 }
 

@@ -1887,6 +1887,13 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateCountdown, 1000);
   updateCountdown();
 
+  // Allow clicking on any timer box to trigger dice roll animation manually
+  document.querySelectorAll('.countdown-box').forEach(box => {
+    box.addEventListener('click', () => {
+      triggerBoxTick(box.id);
+    });
+  });
+
 
   // ==========================================================================
   // 5. EVENT & CLUB DETAILS MODAL ENGINE

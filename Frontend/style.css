@@ -986,15 +986,20 @@ body.is-loading {
 .fest-edition-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
-  padding: 0.45rem 1.4rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.8rem;
+  max-width: 960px;
+  line-height: 1.45;
+  text-align: center;
+  padding: 0.5rem 1.4rem;
   border-radius: 999px;
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(217, 119, 6, 0.22) 100%);
   border: 1px solid rgba(245, 158, 11, 0.4);
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 2.5px;
+  letter-spacing: 2px;
   color: #fbbf24;
   margin-bottom: 1.8rem;
   box-shadow: 0 0 25px rgba(245, 158, 11, 0.2);
@@ -1007,6 +1012,7 @@ body.is-loading {
   background: #22c55e;
   box-shadow: 0 0 10px #22c55e;
   animation: greenPulse 2s infinite;
+  flex-shrink: 0;
 }
 
 @keyframes greenPulse {
@@ -1027,9 +1033,207 @@ body.is-loading {
 .sankalp-subheading {
   color: #cbd5e1;
   font-size: clamp(1rem, 2.2vw, 1.35rem);
-  margin-bottom: 3.2rem;
+  margin-bottom: 2.8rem;
   font-weight: 400;
   letter-spacing: 1.2px;
+}
+
+/* SECTION: THEME OF SANKALP 2K26 (Showcase Panel) */
+.sankalp-theme-showcase {
+  max-width: 780px;
+  margin: 0 auto 3rem;
+  position: relative;
+}
+
+.theme-showcase-box {
+  position: relative;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(16, 20, 45, 0.82) 0%, rgba(6, 8, 20, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  padding: 2.4rem 2rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 45px rgba(245, 158, 11, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.theme-glow-aura {
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 420px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.18) 0%, rgba(217, 119, 6, 0.06) 50%, transparent 75%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.theme-box-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.theme-top-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fbbf24;
+  margin-bottom: 1rem;
+}
+
+.theme-box-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  color: #fff;
+  margin-bottom: 0.6rem;
+  text-shadow: 0 0 25px rgba(245, 158, 11, 0.3);
+}
+
+.theme-box-desc {
+  color: #cbd5e1;
+  font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+  max-width: 620px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Theme Logo Showcase Stage: Pre-configured for user logo upload */
+.theme-logo-stage {
+  width: 100%;
+  max-width: 480px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.theme-logo-placeholder {
+  width: 100%;
+  padding: 2.2rem 1.6rem;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 2px dashed rgba(245, 158, 11, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: inset 0 0 25px rgba(245, 158, 11, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theme-logo-placeholder:hover {
+  border-color: rgba(251, 191, 36, 0.8);
+  box-shadow: inset 0 0 35px rgba(245, 158, 11, 0.12), 0 0 25px rgba(245, 158, 11, 0.2);
+}
+
+.theme-ring-glow {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, rgba(245, 158, 11, 0.05) 70%);
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+  animation: themeRingPulse 3s infinite ease-in-out;
+}
+
+@keyframes themeRingPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(245, 158, 11, 0.35); }
+  50% { transform: scale(1.08); box-shadow: 0 0 32px rgba(245, 158, 11, 0.6); }
+}
+
+.theme-sparkle-icon {
+  font-size: 1.5rem;
+  color: #fbbf24;
+  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.8));
+}
+
+.theme-placeholder-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 0.35rem;
+}
+
+.theme-placeholder-sub {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  max-width: 360px;
+  margin-bottom: 1.1rem;
+  line-height: 1.45;
+}
+
+.theme-status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(30, 41, 59, 0.85);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  color: #fbbf24;
+}
+
+.status-live-beacon {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+  animation: greenPulse 1.8s infinite;
+}
+
+/* User-uploaded logo style (once populated) */
+.theme-loaded-logo {
+  max-width: 320px;
+  max-height: 220px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 25px rgba(245, 158, 11, 0.5));
+  transition: transform 0.35s ease;
+}
+.theme-loaded-logo:hover {
+  transform: scale(1.04);
+}
+
+/* Countdown Section Sub-label */
+.countdown-section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fbbf24;
+  margin-bottom: 1.6rem;
 }
 
 /* Hologram Countdown Panel */
@@ -1164,28 +1368,28 @@ body.is-loading {
     border-color: rgba(245, 158, 11, 0.32);
   }
   22% {
-    /* Die thrown up into air, spinning on all 3 axes */
-    transform: perspective(800px) translate3d(-4px, -24px, 45px) rotateX(-32deg) rotateY(26deg) rotateZ(-14deg) scale(1.1);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(245, 158, 11, 0.7);
+    /* Bottom kicks forward/upward, rolling from bottom to top into the air */
+    transform: perspective(800px) translate3d(-3px, -28px, 48px) rotateX(36deg) rotateY(-18deg) rotateZ(8deg) scale(1.1);
+    box-shadow: 0 32px 64px rgba(0, 0, 0, 0.85), 0 0 35px rgba(245, 158, 11, 0.7);
     border-color: rgba(251, 191, 36, 1);
   }
   48% {
-    /* Apex tumble, reverse torque */
-    transform: perspective(800px) translate3d(3px, -14px, 30px) rotateX(24deg) rotateY(-22deg) rotateZ(10deg) scale(1.06);
+    /* Apex of bottom-to-top tumble: rolls over top edge with torque reversal */
+    transform: perspective(800px) translate3d(2px, -15px, 28px) rotateX(-24deg) rotateY(16deg) rotateZ(-6deg) scale(1.05);
     box-shadow: 0 22px 45px rgba(0, 0, 0, 0.75), 0 0 25px rgba(245, 158, 11, 0.5);
   }
   72% {
-    /* Falling to surface, counter-wobble */
-    transform: perspective(800px) translate3d(-2px, -3px, 12px) rotateX(-14deg) rotateY(12deg) rotateZ(-4deg) scale(1.02);
+    /* Falling to surface with residual bottom-to-top momentum */
+    transform: perspective(800px) translate3d(-1px, -4px, 12px) rotateX(10deg) rotateY(-6deg) rotateZ(2deg) scale(1.02);
   }
   86% {
-    /* Hard impact bounce / squash on table */
-    transform: perspective(800px) translate3d(0, 5px, 0) rotateX(8deg) rotateY(-6deg) rotateZ(2deg) scale(0.97);
+    /* Table impact squash */
+    transform: perspective(800px) translate3d(0, 5px, 0) rotateX(-6deg) rotateY(3deg) scale(0.97);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.9), 0 0 20px rgba(245, 158, 11, 0.4);
   }
   94% {
-    /* Micro elastic rebound */
-    transform: perspective(800px) translate3d(0, -2px, 0) rotateX(-3deg) rotateY(2deg) rotateZ(-1deg) scale(1.01);
+    /* Micro elastic rebound settling */
+    transform: perspective(800px) translate3d(0, -2px, 0) rotateX(2deg) scale(1.01);
   }
   100% {
     /* Solidly settled face-up */
@@ -1197,18 +1401,20 @@ body.is-loading {
 
 @keyframes diceDigitLand {
   0% {
-    transform: scale(0.75) translateY(-20px) rotateX(50deg);
-    opacity: 0.2;
+    /* Digit enters rolling UP from the bottom */
+    transform: scale(0.75) translateY(36px) rotateX(-50deg);
+    opacity: 0.15;
     filter: blur(3px);
   }
   38% {
-    transform: scale(1.15) translateY(4px) rotateX(-18deg);
+    /* Apex of bottom-to-top roll with intense amber glow */
+    transform: scale(1.15) translateY(-6px) rotateX(15deg);
     opacity: 1;
     color: #fef08a;
     filter: blur(0px) drop-shadow(0 0 25px rgba(245, 158, 11, 1));
   }
   72% {
-    transform: scale(0.96) translateY(-2px) rotateX(8deg);
+    transform: scale(0.96) translateY(2px) rotateX(-5deg);
   }
   100% {
     transform: scale(1) translateY(0) rotateX(0deg);

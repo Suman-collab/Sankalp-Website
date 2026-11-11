@@ -1161,7 +1161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "name": "Ashraya Ranjan",
-            "role": "Design Team",
+            "role": "Design Lead",
             "avatar": "assets/images/team/design/ashraya.jpg"
         },
         {
@@ -1188,7 +1188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "name": "Anushka Patro",
-            "role": "Cultural Team",
+            "role": "Cultural Lead",
             "avatar": "assets/images/team/cultural/anushka.jpg"
         },
         {
@@ -1230,7 +1230,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "name": "Mohit Kumar Sahu",
-            "role": "Media Team",
+            "role": "Media Lead",
             "avatar": "assets/images/team/media/mohit.jpg"
         },
         {
@@ -1309,7 +1309,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             "name": "Soumya Swarup Patro",
-            "role": "Food Team",
+            "role": "Food Lead",
             "avatar": "assets/images/team/food/soumya.jpg"
         },
         {
@@ -1340,6 +1340,11 @@ document.addEventListener('DOMContentLoaded', () => {
             "avatar": "assets/images/team/hospitality/ayush.jpg"
         },
         {
+            "name": "G. Balaji",
+            "role": "Hospitality Lead",
+            "avatar": "assets/images/team/hospitality/balaji.jpg"
+        },
+        {
             "name": "S. Tejaswini Reddy",
             "role": "Hospitality Team",
             "avatar": "assets/images/team/hospitality/tejaswini.jpg"
@@ -1348,11 +1353,6 @@ document.addEventListener('DOMContentLoaded', () => {
             "name": "Aadyasha Panda",
             "role": "Hospitality Team",
             "avatar": "assets/images/team/hospitality/aadyasha.jpg"
-        },
-        {
-            "name": "G. Balaji",
-            "role": "Hospitality Team",
-            "avatar": "assets/images/team/hospitality/balaji.jpg"
         },
         {
             "name": "Sourav Mahanti",
@@ -1893,6 +1893,17 @@ document.addEventListener('DOMContentLoaded', () => {
       triggerBoxTick(box.id);
     });
   });
+
+  // Theme logo upload handler: if image src is set in the future, display it and hide placeholder
+  const themeLoadedLogo = document.getElementById('theme-loaded-logo');
+  const themePlaceholder = document.getElementById('theme-logo-placeholder');
+  if (themeLoadedLogo && themePlaceholder) {
+    const rawSrc = themeLoadedLogo.getAttribute('src');
+    if (rawSrc && rawSrc.trim().length > 0 && rawSrc !== window.location.href) {
+      themeLoadedLogo.style.display = 'block';
+      themePlaceholder.style.display = 'none';
+    }
+  }
 
 
   // ==========================================================================
